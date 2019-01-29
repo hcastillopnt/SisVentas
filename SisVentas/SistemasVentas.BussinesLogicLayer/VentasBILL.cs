@@ -13,19 +13,7 @@ namespace SistemasVentas.BussinesLogicLayer
             //Lista para almacenar el objeto a buscar
             List<Venta> ventas = new List<Venta>();
 
-            switch (bandera)
-            {
-                case "FirstMideName":
-                    break;
-                case "LastName":
-                    ventas = DataAccessLayer.VentasDAL.getVentaByID(Filter);
-                    break;
-                case "StudentId":
-                    int StudentID = Convert.ToInt32(Filter);
-                    ventas = DataAccessLayer.VentasDAL.getVentaByID(vent);
-                    break;
-
-            }
+         
             return ventas;
 
         }
@@ -42,7 +30,7 @@ namespace SistemasVentas.BussinesLogicLayer
 
 
         }
-        public static List<Venta> ggetAllVentas()
+        public static List<Venta> getAllVentas()
         {
             //Lista para almacenar el objeto a buscar
             List<Venta> ventas = new List<Venta>();
@@ -69,22 +57,25 @@ namespace SistemasVentas.BussinesLogicLayer
             string message = string.Empty;
 
             //primera validacion - Verificar los campos vacios
-            if (string.IsNullOrEmpty(entity.TipoComporbante)
+            if (string.IsNullOrEmpty(entity.TipoComporbante))
             {
+
+
                 message = "El campo tipo esta vacio, favor de completarlo";
+
             }
-            else
-            {
+
+            else {  
+        
+            
                
-                else
-                {
-                    //Definir la fecha de enrolamiento de manera automatica
-                    entity.EnrollementDate = DateTime.Now;
+                
+
 
                     //Este es el puent entre la capa dde negocios y el acceso a datos
                     message = DataAccessLayer.VentasDAL.insertVentas(entity);
 
-                }
+                
             }
 
             //regresa el mensaje con o sin errores
@@ -98,22 +89,22 @@ namespace SistemasVentas.BussinesLogicLayer
             //primera validacion - Verificar los campos vacios
             if (string.IsNullOrEmpty(entity.Serie))
             {
-                message = "El campo Apellido esta vacio, favor de completarlo";
+                message = "El campo serie esta vacio, favor de completarlo";
             }
             else
             {
                 if (string.IsNullOrEmpty(entity.Correlativo))
                 {
-                    message = "El campo Nombre esta vacio, favor de completarlo";
+                    message = "El campo correlativo esta vacio, favor de completarlo";
                 }
                 else
                 {
-                    //Definir la fecha de enrolamiento de manera automatica
-                    entity.EnrollementDate = DateTime.Now;
+
 
                     //Este es el puent entre la capa dde negocios y el acceso a datos
-                    message = DataAccessLayer.VentasDAL.updateVenta; 
-(entity);
+                    message = DataAccessLayer.VentasDAL.updateVenta
+                        (entity);
+
 
                 }
             }
