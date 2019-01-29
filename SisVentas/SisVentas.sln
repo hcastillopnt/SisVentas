@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDatos", "BaseDatos", "{
 		..\..\..\..\Downloads\Sistema de Ventas C# - SQL Server 2014 (Free) - Incanatoit\Base de Datos\script.sql = ..\..\..\..\Downloads\Sistema de Ventas C# - SQL Server 2014 (Free) - Incanatoit\Base de Datos\script.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntities", "BusinessEntities\BusinessEntities.csproj", "{7E9FD8FA-6149-434F-86EB-9F63F6EA9ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.BusinessLogicLayer", "SisVentas.BusinessLogicLayer\SisVentas.BusinessLogicLayer.csproj", "{16233D3D-CCE3-42A0-9173-328FAD95BB77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.DataAccessLayer", "SisVentas.DataAccessLayer\SisVentas.DataAccessLayer.csproj", "{805F903E-B0C7-42A0-B2C8-66490FB9DB52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +28,18 @@ Global
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9FD8FA-6149-434F-86EB-9F63F6EA9ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9FD8FA-6149-434F-86EB-9F63F6EA9ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9FD8FA-6149-434F-86EB-9F63F6EA9ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9FD8FA-6149-434F-86EB-9F63F6EA9ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16233D3D-CCE3-42A0-9173-328FAD95BB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16233D3D-CCE3-42A0-9173-328FAD95BB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16233D3D-CCE3-42A0-9173-328FAD95BB77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16233D3D-CCE3-42A0-9173-328FAD95BB77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{805F903E-B0C7-42A0-B2C8-66490FB9DB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805F903E-B0C7-42A0-B2C8-66490FB9DB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805F903E-B0C7-42A0-B2C8-66490FB9DB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805F903E-B0C7-42A0-B2C8-66490FB9DB52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
