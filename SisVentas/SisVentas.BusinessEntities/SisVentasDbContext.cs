@@ -17,6 +17,17 @@ namespace SisVentas.BusinessEntities
 
         }
 
+        public DbSet<Articulo> Articulos { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<DetalleIngreso> DetalleIngresos { get; set; }
+        public DbSet<DetalleVenta> DetalleVentas { get; set; }
+        public DbSet<Ingreso> Ingresos { get; set; }
+        public DbSet<Presentacion> Presentaciones { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+        public DbSet<Trabajador> Trabajadores { get; set; }
+        public DbSet<Venta> Ventas { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

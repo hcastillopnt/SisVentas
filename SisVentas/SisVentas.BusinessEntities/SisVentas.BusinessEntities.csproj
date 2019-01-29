@@ -53,12 +53,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Articulo.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="DetalleIngreso.cs" />
+    <Compile Include="DetalleVenta.cs" />
+    <Compile Include="Ingreso.cs" />
+    <Compile Include="Migrations\201901291843569_initial.cs" />
+    <Compile Include="Migrations\201901291843569_initial.Designer.cs">
+      <DependentUpon>201901291843569_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Presentacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor.cs" />
     <Compile Include="SisVentasDbContext.cs" />
+    <Compile Include="Trabajador.cs" />
+    <Compile Include="Venta.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901291843569_initial.resx">
+      <DependentUpon>201901291843569_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
