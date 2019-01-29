@@ -14,7 +14,11 @@ namespace ClassLibrary
     {
         //se crea una instancia de la clase DbContext para acceder a la DB
         public static SistemaDBContext dbCtx = new SistemaDBContext();
-
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <param name="StudentID"></param>
+        /// <returns></returns>
 
         public static List<Ingreso> getStudentsByID(int StudentID)
         {
