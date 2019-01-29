@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataListado = new System.Windows.Forms.DataGridView();
@@ -82,15 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(660, 83);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(46, 17);
-            this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "label3";
             // 
             // txtBuscar
             // 
@@ -158,7 +148,6 @@
             // 
             this.tabPage1.Controls.Add(this.cbBuscar);
             this.tabPage1.Controls.Add(this.dataListado);
-            this.tabPage1.Controls.Add(this.lblTotal);
             this.tabPage1.Controls.Add(this.chkEliminar);
             this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.btnEliminar);
@@ -583,8 +572,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.DataGridView dataListado;
