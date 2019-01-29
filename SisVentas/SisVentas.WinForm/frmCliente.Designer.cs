@@ -57,7 +57,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.chkEliminar = new System.Windows.Forms.CheckBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -384,15 +383,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Código:";
             // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(660, 83);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(46, 17);
-            this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "label3";
-            // 
             // chkEliminar
             // 
             this.chkEliminar.AutoSize = true;
@@ -414,7 +404,6 @@
             // 
             this.tabPage1.Controls.Add(this.cbBuscar);
             this.tabPage1.Controls.Add(this.dataListado);
-            this.tabPage1.Controls.Add(this.lblTotal);
             this.tabPage1.Controls.Add(this.chkEliminar);
             this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.btnEliminar);
@@ -558,7 +547,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.CheckBox chkEliminar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnEliminar;

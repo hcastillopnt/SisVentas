@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace SisVentas.DataAccessLayer
 {
-    public class CategoriaDAL
+    public class TrabajadorDAL
     {
         private static SisVentasDbContext dbCtx = new SisVentasDbContext();
 
         #region INSERTAR
 
-        public static string insertCategoria(Categoria categoria)
+        public static string insertTrabajador(Trabajador trabajador)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -37,7 +37,7 @@ namespace SisVentas.DataAccessLayer
                     {
                         #region Alternativa con ENTITY FRAMEWORK
                         //Se añade la entidad al contexto
-                        dbCtx.Categorias.Add(categoria);
+                        dbCtx.Trabajadors.Add(trabajador);
 
                         //se guardan los cambios en el contexto y se verifica si se efectuo de manera correcta
                         isInserted = dbCtx.SaveChanges() > 0;
@@ -90,7 +90,7 @@ namespace SisVentas.DataAccessLayer
 
         #region ACTUALIZAR
 
-        public static string updateCategoria(Categoria categoria)
+        public static string updateTrabajador(Trabajador trabajador)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -111,14 +111,22 @@ namespace SisVentas.DataAccessLayer
                     {
                         #region Alternativa #1 - Actualizando con Entity Framework
                         //buscamos el objeto a actualizar
-                        var entity = dbCtx.Categorias.Find(categoria.id);
+                        var entity = dbCtx.Trabajadors.Find(trabajador.Id);
 
                         //Validad que el objeto exsita
                         if (entity != null)
                         {
                             //Damos los valores a modificar
-                            entity.nombre = categoria.nombre;
-                            entity.descripcion = categoria.descripcion;
+                            entity.nombre = trabajador.nombre;
+                            entity.apellido = trabajador.apellido;
+                            entity.sexo = trabajador.sexo;
+                            entity.fecha_nacimiento = trabajador.fecha_nacimiento;
+                            entity.num_documento = trabajador.num_documento;
+                            entity.direccion = trabajador.direccion;
+                            entity.telefono = trabajador.telefono;
+                            entity.acceso = trabajador.acceso;
+                            entity.usuario = trabajador.usuario;
+                            entity.password = trabajador.password;
 
                             //Se añade la entidad al contexto
                             dbCtx.Entry(entity).State = EntityState.Modified;
@@ -174,7 +182,7 @@ namespace SisVentas.DataAccessLayer
 
         #region ELIMINAR
 
-        public static string removeCategoria(int Id)
+        public static string removeTrabajador(int Id)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -196,10 +204,10 @@ namespace SisVentas.DataAccessLayer
                         #region Alternativa #1 - Eliminando con Entity Framework
                         //Consultar para obtener el objeto a eliminar
                         //var objStudent = dbCtx.Students.Find(Id);
-                        var objCategoria = dbCtx.Categorias.Where(x => x.id == Id).SingleOrDefault();//Puede ser esta también para que elimine
+                        var objTrabajador = dbCtx.Trabajadors.Where(x => x.Id == Id).SingleOrDefault();//Puede ser esta también para que elimine
 
                         //Consulta para eliminar el objeto
-                        dbCtx.Categorias.Remove(objCategoria);
+                        dbCtx.Trabajadors.Remove(objTrabajador);
 
                         //Guardar el status del borrado
                         isRemoved = dbCtx.SaveChanges() > 0;
@@ -254,30 +262,40 @@ namespace SisVentas.DataAccessLayer
 
         #region TODOS
 
-        public static List<Categoria> getAllCategoria()
+        public static List<Trabajador> getAllTrabajador()
         {
-            List<Categoria> categorias = new List<Categoria>();//se crea la instacia de la lista de estudiantes
+            List<Trabajador> trabajadors = new List<Trabajador>();//se crea la instacia de la lista de estudiantes
 
             //SELECT * FROM Students
-            categorias = dbCtx.Categorias.ToList();
+            trabajadors = dbCtx.Trabajadors.ToList();
 
-            return categorias;//retorna lista de estudiantes
+            return trabajadors;//retorna lista de estudiantes
         }
 
         #endregion
 
-        #region NOMBRE
-        public static List<Categoria> getCategoriaByName(string name)
+        #region APELLIDO
+        public static List<Trabajador> getTrabajadorByLastName(string lastname)
         {
-            List<Categoria> categorias = new List<Categoria>();
+            List<Trabajador> trabajadors = new List<Trabajador>();
 
             //SELECT * FROM .... WHERE firstmidname = '_____'
-            categorias = dbCtx.Categorias.Where(x => x.nombre == name).ToList();
+            trabajadors = dbCtx.Trabajadors.Where(x => x.apellido == lastname).ToList();
 
-            return categorias;
+            return trabajadors;
         }
 
         #endregion
+
+        public static List<Trabajador> getTrabajadorByDocument(string documento)
+        {
+            List<Trabajador> trabajadors = new List<Trabajador>();
+
+            //SELECT * FROM .... WHERE firstmidname = '_____'
+            trabajadors = dbCtx.Trabajadors.Where(x => x.num_documento== documento).ToList();
+
+            return trabajadors;
+        }
 
 
         #endregion
