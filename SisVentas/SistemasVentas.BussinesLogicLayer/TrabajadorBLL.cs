@@ -115,7 +115,7 @@ namespace SistemasVentas.BussinesLogicLayer
             return message;
         }
 
-        public static string removeStudent(int TrabajadorID)
+        public static string removeTrabajador(int TrabajadorID)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -131,6 +131,6 @@ namespace SistemasVentas.BussinesLogicLayer
                 return "Error";
             }
 
-        }*/
+        }
     }
 }
