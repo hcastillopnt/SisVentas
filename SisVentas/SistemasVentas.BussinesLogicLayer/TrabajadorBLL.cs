@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,57 +72,58 @@ namespace SistemasVentas.BussinesLogicLayer
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
-            public static bool validate<T>(T obj)
+            ICollection<ValidationResult> result = null;
 
-
-
-            //regresa el mensaje con o sin errores
-            return message;
-
-        }
-
-        public static string updateStudent(Student entity)
-        {
-            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
-            string message = string.Empty;
-
-            //primera validacion - Verificar los campos vacios
-            if (string.IsNullOrEmpty(entity.LastName))
+            if(!validate(objTrabajador,out result))
             {
-                message = "El campo Apellido esta vacio, favor de completarlo";
+                message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                if (string.IsNullOrEmpty(entity.FirstMideName))
-                {
-                    message = "El campo Nombre esta vacio, favor de completarlo";
-                }
-                else
-                {
-                    //Definir la fecha de enrolamiento de manera automatica
-                    entity.EnrollementDate = DateTime.Now;
-
-                    //Este es el puent entre la capa dde negocios y el acceso a datos
-                    message = DataAccessLayer.StudentDAL.updateStudent
-(entity);
-
-                }
+                message = SistemasVentas.DataAccessLayer.TrabajadorDAL.insertTrabajador(objTrabajador);
             }
 
 
             //regresa el mensaje con o sin errores
             return message;
+
         }
 
-        public static string removeStudent(int StudentID)
+        public static bool validate<T>(T obj, out ICollection<ValidationResult> results)
+        {
+            results = new List<ValidationResult>();
+            return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
+        }
+
+        public static string updateTrabajador(Trabajador objTrabajador)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
-            if (StudentID > 0)
+            ICollection<ValidationResult> result = null;
+
+            if (!validate(objTrabajador, out result))
+            {
+                message = string.Join("\n", result.Select(o => o.ErrorMessage));
+            }
+            else
+            {
+                message = SistemasVentas.DataAccessLayer.TrabajadorDAL.updateTrabajador(objTrabajador);
+            }
+       
+            //regresa el mensaje con o sin errores
+            return message;
+        }
+
+        public static string removeStudent(int TrabajadorID)
+        {
+            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+            string message = string.Empty;
+
+            if (TrabajadorID > 0)
             {
 
-                return DataAccessLayer.StudentDAL.removeStudent(StudentID);
+                return SistemasVentas.DataAccessLayer.TrabajadorDAL.removeTrabajador(TrabajadorID);
 
             }
             else
