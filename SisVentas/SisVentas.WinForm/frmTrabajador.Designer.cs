@@ -205,6 +205,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tabPage2
             // 
@@ -530,6 +531,7 @@
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "E&ditar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
