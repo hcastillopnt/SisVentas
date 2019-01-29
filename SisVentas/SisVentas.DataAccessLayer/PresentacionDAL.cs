@@ -277,7 +277,7 @@ namespace SisVentas.DataAccessLayer
             //SELECT * FROM .... WHERE firstmidname...
             presentacions = dbCtx.Presentacions.Where(x => x.nombre == name).ToList();
 
-            return presentacions;
+            return presentacions;     
         }
 
         #endregion

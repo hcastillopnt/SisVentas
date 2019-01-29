@@ -391,5 +391,15 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
+      <Project>{7e9fd8fa-6149-434f-86eb-9f63f6ea9ed8}</Project>
+      <Name>BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SisVentas.BusinessLogicLayer\SisVentas.BusinessLogicLayer.csproj">
+      <Project>{16233d3d-cce3-42a0-9173-328fad95bb77}</Project>
+      <Name>SisVentas.BusinessLogicLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
