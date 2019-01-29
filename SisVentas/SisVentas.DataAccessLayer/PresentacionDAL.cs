@@ -9,7 +9,7 @@ namespace SisVentas.DataAccessLayer
 {
     class PresentacionDAL
     {
-        public static SiVentasDbContex dbCtx = new SiVentasDbContex();
+        private static SisVentasDbContex dbCtx = new SisVentasDbContex();
         
             
     }
