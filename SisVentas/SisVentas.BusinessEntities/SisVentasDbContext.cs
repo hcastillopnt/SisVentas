@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-
 namespace SisVentas.BusinessEntities
 {
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
@@ -16,7 +15,7 @@ namespace SisVentas.BusinessEntities
     {
         public SisVentasDbContext() : base("SisVentasDbContext")
         {
-            //constructor vacio 
+            //constructor vacio
         }
 
         public DbSet<Proveedor> Proveedores { get; set; }
