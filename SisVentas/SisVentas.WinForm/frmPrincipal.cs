@@ -31,8 +31,8 @@ namespace SisVentas.WinForm
 
         private void trabajadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCliente cliente = new frmCliente();
-            cliente.ShowDialog();
+            frmTrabajador trabajador = new frmTrabajador();
+            trabajador.ShowDialog();
         }
 
         private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,7 +43,13 @@ namespace SisVentas.WinForm
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmCliente cliente = new frmCliente();
+            cliente.ShowDialog();
+        }
 
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
