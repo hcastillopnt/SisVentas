@@ -16,5 +16,10 @@ namespace SisVentas.WinForm
         {
             InitializeComponent();
         }
+
+        private void BtnIngresar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
