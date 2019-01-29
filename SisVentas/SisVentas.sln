@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDatos", "BaseDatos", "{
 		..\..\..\..\Downloads\Sistema de Ventas C# - SQL Server 2014 (Free) - Incanatoit\Base de Datos\script.sql = ..\..\..\..\Downloads\Sistema de Ventas C# - SQL Server 2014 (Free) - Incanatoit\Base de Datos\script.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.BusinessEntities", "SisVentas.BusinessEntities\SisVentas.BusinessEntities.csproj", "{577F3D66-AF31-43D2-93A2-BF29E3FDE258}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.DataAccessLayer", "SisVentas.DataAccessLayer\SisVentas.DataAccessLayer.csproj", "{04F3CF2C-7560-4D03-8BC1-ACC156C03834}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.BusinessLogicLayer", "SisVentas.BusinessLogicLayer\SisVentas.BusinessLogicLayer.csproj", "{9CF18F5A-1868-4CF0-B2C9-47E5C3CC3473}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +28,18 @@ Global
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{577F3D66-AF31-43D2-93A2-BF29E3FDE258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{577F3D66-AF31-43D2-93A2-BF29E3FDE258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{577F3D66-AF31-43D2-93A2-BF29E3FDE258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{577F3D66-AF31-43D2-93A2-BF29E3FDE258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F3CF2C-7560-4D03-8BC1-ACC156C03834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F3CF2C-7560-4D03-8BC1-ACC156C03834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F3CF2C-7560-4D03-8BC1-ACC156C03834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F3CF2C-7560-4D03-8BC1-ACC156C03834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF18F5A-1868-4CF0-B2C9-47E5C3CC3473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF18F5A-1868-4CF0-B2C9-47E5C3CC3473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF18F5A-1868-4CF0-B2C9-47E5C3CC3473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF18F5A-1868-4CF0-B2C9-47E5C3CC3473}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
