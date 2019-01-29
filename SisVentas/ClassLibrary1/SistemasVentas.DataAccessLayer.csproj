@@ -7,8 +7,8 @@
     <ProjectGuid>{872C05A3-ACD5-4A6B-959C-2BEA6BE5C289}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>SistemasVentas.DataAccessLayer</RootNamespace>
+    <AssemblyName>SistemasVentas.DataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
