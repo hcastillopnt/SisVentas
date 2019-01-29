@@ -275,7 +275,7 @@ namespace SisVentas.DataAccessLayer
         #endregion
 
         #region APELLIDO
-        public static List<Trabajador> getCategoriaByLastName(string lastname)
+        public static List<Trabajador> getTrabajadorByLastName(string lastname)
         {
             List<Trabajador> trabajadors = new List<Trabajador>();
 
@@ -287,7 +287,7 @@ namespace SisVentas.DataAccessLayer
 
         #endregion
 
-        public static List<Trabajador> getCategoriaByDocument(string documento)
+        public static List<Trabajador> getTrabajadorByDocument(string documento)
         {
             List<Trabajador> trabajadors = new List<Trabajador>();
 
