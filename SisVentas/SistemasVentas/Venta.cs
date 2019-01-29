@@ -52,7 +52,7 @@ namespace SistemasVentas
         [ForeignKey("Cliente")]
         [Required(ErrorMessage = "El campo ClienteId es obligatorio")]
         [Range(0, int.MaxValue, ErrorMessage = "Debe ser un numero entero")]
-        public int VentaId { get; set; }
+        public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
     }
 }

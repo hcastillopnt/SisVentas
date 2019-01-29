@@ -8,12 +8,20 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas
 {
-   public class SistemaDBContext:DbContext
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
+    public class SistemaDBContext : DbContext
     {
         public SistemaDBContext() : base("SistemaDBContext")
         {
 
         }
+
+        public DbSet<Venta> Ventas { get; set; }
+        public DbSet<Trabajador> Trabajadors{ get; set; }
+        public DbSet<Proveedor> Proveedors{ get; set; }
+        public DbSet<Ingreso> Ingresos{ get; set; }
+        public DbSet<Cliente> Clientes{ get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

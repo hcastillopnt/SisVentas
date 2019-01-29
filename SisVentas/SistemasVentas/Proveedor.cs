@@ -10,7 +10,7 @@ namespace SistemasVentas
    public  class Proveedor
     {
         [Key]
-        public int Id;
+        public int Id { get; set; }
 
 
         [Required(ErrorMessage = "El campo RazonSocial es obligatorio")]//Obligatorio
