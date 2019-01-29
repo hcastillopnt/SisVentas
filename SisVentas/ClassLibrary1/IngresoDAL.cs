@@ -342,12 +342,12 @@ namespace ClassLibrary
                     if (isDatabaseExist)
                     {
                         //consultar para obtener el objeto a eliminar
-                        var objStudent = dbCtx.Students
+                        var objStudent = dbCtx.Ingresos
                             .Where(x => x.Id == StudentID)
                             .SingleOrDefault();
 
                         //consultar para eliminar el objeto
-                        dbCtx.Students.Remove(objStudent);
+                        dbCtx.Ingresos.Remove(objStudent);
 
                         //guardar el status del borradoor
                         isRemoved = dbCtx.SaveChanges() > 0;
