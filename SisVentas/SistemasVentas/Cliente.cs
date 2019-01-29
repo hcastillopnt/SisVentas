@@ -38,7 +38,7 @@ namespace SistemasVentas
 
 
         [Required(ErrorMessage = "El campo TipoDocumento es obligatorio")]//Obligatorio
-        [StringLength(20, ErrorMessage = "La longitud es de 20caracter")]//Longitud de la cadena
+        [StringLength(20, ErrorMessage = "La longitud es de 20 caracteres")]//Longitud de la cadena
         public  string TipoDocumento { get; set; }
 
 
@@ -63,11 +63,7 @@ namespace SistemasVentas
 
 
 
-        [ForeignKey("Venta")]
-        [Required(ErrorMessage = "El campo VentaId es obligatorio")]
-        [Range(0, int.MaxValue, ErrorMessage = "Debe ser un numero entero")]
-        public int VentaId { get; set; }
-
+        public virtual ICollection<Venta> Ventas { get; set; }
 
 
 
