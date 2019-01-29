@@ -54,11 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categorias.cs" />
+    <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Presentacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedor.cs" />
+    <Compile Include="SisVentasDbContext.cs" />
     <Compile Include="Trabajador.cs" />
   </ItemGroup>
   <ItemGroup>
