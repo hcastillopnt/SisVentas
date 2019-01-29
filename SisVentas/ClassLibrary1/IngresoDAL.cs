@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,37 +16,37 @@ namespace ClassLibrary
         public static SistemaDBContext dbCtx = new SistemaDBContext();
 
 
-        public static List<Student> getStudentsByID(int StudentID)
+        public static List<Ingreso> getStudentsByID(int StudentID)
         {
-            List<Student> students = new List<Student>();
+            List<Ingreso> ingresos = new List<Ingreso>();
             //SELECT * FROM STUDENT WHERE  Id= '____'
-            students = dbCtx.Students.Where(x => x.Id == StudentID).ToList();
+            ingresos = dbCtx.Ingresos.Where(x => x.Id == StudentID).ToList();
 
-            return students;
+            return ingresos;
         }
 
         //Metodo para obtener todos los estudiantes registrados en pocas palabras select * from
-        public static List<Student> getAllStudents()
+        public static List<Ingreso> getAllStudents()
         {
-            List<Student> students = new List<Student>();
+            List<Ingreso> students = new List<Ingreso>();
 
             //SELECT * FROM STUDENTS
-            students = dbCtx.Students.ToList();
+            students = dbCtx.Ingresos.ToList();
 
             return students;
         }
 
 
         //metodo para obtener los estudiantes por medio del apellido
-        public static List<Student> getStudentsByLastName(string lastname)
+        public static List<Ingreso> getStudentsByLastName(int  lastname)
         {
-            List<Student> students = new List<Student>();
+            List<Ingreso> students = new List<Ingreso>();
             //SELECT * FROM STUDENT WHERE  LastName= '____'
-            students = dbCtx.Students.Where(x => x.LastName == lastname).ToList();
+            students = dbCtx.Ingresos.Where(x => x.ProveedorId == lastname).ToList();
             return students;
         }
 
-        public static string insertStudent(Student entity)
+        public static string insertStudent(Ingreso entity)
         {
             #region //insertar
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
@@ -67,7 +70,7 @@ namespace ClassLibrary
                         #region //Alternativa #1 - Funcion para insertar en la base de datos por medio de Entity Framework
 
                         //se añade la entidad al contexto
-                        dbCtx.Students.Add(entity);
+                        dbCtx.Ingresos.Add(entity);
 
                         //Se guardan los cambios en el contexto y se verifica si se efectuo de manera correcta
                         isInserted = dbCtx.SaveChanges() > 0;
@@ -79,8 +82,6 @@ namespace ClassLibrary
                             dbCtxTran.Commit();
                         }
                         #endregion
-
-
 
                         #region //Alternativa #2 - Funcion para insertar en la base de datos por medio ADO.NET con Query Parametrizada
 
@@ -147,8 +148,6 @@ namespace ClassLibrary
 
                         #endregion
 
-
-
                         #region //Alternativa #4 - Funcion para insertar en la base de datos por medio Entity Framework con Stored Procedure
 
                         ////Se ejecuta el query parametrizado y se verifica si se efectuo de manera correcta
@@ -165,7 +164,6 @@ namespace ClassLibrary
                         //}
 
                         #endregion
-
 
                         #region //Alternativa #5 - Funcion para insertar en la base de datos por medio de ADO.NET
 
@@ -211,9 +209,7 @@ namespace ClassLibrary
 
 
                         #endregion */
-
                     }
-
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -244,19 +240,17 @@ namespace ClassLibrary
                     message = ex.Message;
                     dbCtxTran.Rollback();
                 }
-
             }
-
             //retorna el mensaje de error, en caso de ocurrir alguno de lo contrario regresa vacio
             return message;
             #endregion
         }
 
-        public static string updateStudent(Student entity)
+        public static string updateStudent(Ingreso entity)
         {
-            #region //modificar
-            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+            #region //modificarlguno
             string message = string.Empty;
+            //Variable para almacenar el mensaje de error en caso de que ocurra a
 
             //varaible para almacenar si se inserto correctamente el registro
             bool isInserted = false;
@@ -272,8 +266,11 @@ namespace ClassLibrary
                     //Si existe la base de datos se procede a insertar el registro
                     if (isDatabaseExist)
                     {
+
+
                         //alternativa #1 - Actualizando con Entity Framework
                         dbCtx.Entry(entity).State = EntityState.Modified;
+
                         isInserted = dbCtx.SaveChanges() > 0;
                         if (isInserted)
                         {
