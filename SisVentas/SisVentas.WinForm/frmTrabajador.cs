@@ -39,21 +39,16 @@ namespace SisVentas.WinForm
 
 
             //ASIGNAMOS VARIABLES
-            //****verificar como se pondra el de CODIGO***
-
-            //trabajador.Id = codigo;
             trabajador.nombre = nombre;
             trabajador.apellido = apellido;
-            //trabajador.sexo = sexo;
+            trabajador.sexo = Convert.ToChar(sexo);
             trabajador.fecha_nacimiento = fecha_nacimiento;
-            //trabajador.dni = dni;
+            trabajador.num_documento = dni;
             trabajador.direccion = direccion;
             trabajador.telefono = telefono;
             trabajador.email = email;
             trabajador.usuario = usuario;
             trabajador.password = password;
-
-
 
             //Puente entre el BusinessLogicLayer y la interfaz Grafica
             String message = SisVentas.BusinessLogicLayer.TrabajadorBLL.insertTrabajador(trabajador);
