@@ -28,5 +28,15 @@ namespace SisVentas.WinForm
             frmPresentacion presentacion = new frmPresentacion();
             presentacion.ShowDialog();
         }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
