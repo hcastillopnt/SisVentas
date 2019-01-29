@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -31,7 +32,7 @@ namespace SistemasVentas.DataAccessLayer
         {
             List<Cliente> clientes = new List<Cliente>();
 
-            //SELECT * FROM STUDENTS
+            //SELECT * FROM Cliente
             clientes = dbCtx.Clientes.ToList();
 
             return clientes;
@@ -206,78 +207,6 @@ namespace SistemasVentas.DataAccessLayer
             //retorna el mensaje de error, en caso de ocurrir alguno de lo contrario regresa vacio
             return message;
 
-
-        }
-
-        public static string removeCliente(int ClienteId)
-        {
-            //Esta variable para almacenar los errores del metodo
-            string message = string.Empty;
-
-            //Esta variable para almacenar el estatus del metodo
-            bool isRemoved = false;
-
-
-            using (var dbCtxTran = dbCtx.Database.BeginTransaction())
-            {
-                try
-                {
-                    //Saber si la base de datos existe
-                    bool isDatabaseExist = Database.Exists(dbCtx.Database.Connection);
-
-                    if (isDatabaseExist)
-                    {
-                        //consulta para traer el objeto a eliminar
-                        var objStudent = dbCtx.Clientes.Where(x => x.Id == ClienteId).SingleOrDefault();
-
-                        //Consulta para eliminar el objeto
-                        dbCtx.Clientes.Remove(objStudent);
-
-                        //Guardo el estatus del borrado
-                        isRemoved = dbCtx.SaveChanges() > 0;
-
-                        //Si se elimino correctamente hago el commit
-                        if (isRemoved)
-                        {
-                            dbCtxTran.Commit();
-                        }
-                    }
-
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    var errorMessages = ex.EntityValidationErrors
-                         .SelectMany(x => x.ValidationErrors)
-                         .Select(x => x.ErrorMessage);
-                    var fullErrorMessage = string.Join(";", errorMessages);
-                    var exceptionMessage = string.Concat(ex.Message, "The validation erros are: ",
-                        fullErrorMessage);
-                    message = exceptionMessage + "\n" + ex.EntityValidationErrors;
-
-                    dbCtxTran.Rollback();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    var entityObj = ex.Entries.Single().GetDatabaseValues();
-                    if (entityObj == null)
-                    {
-                        message = "The entity being updated is already deleted by another user";
-                    }
-                    else
-                        message = "The entity being updated has already been updated by another user";
-
-                    dbCtxTran.Rollback();
-                }
-                catch (Exception ex)
-                {
-                    message = ex.Message;
-                    dbCtxTran.Rollback();
-                }
-
-            }
-
-            //retorna el mensaje de error, en caso de ocurrir alguno de lo contrario regresa vacio
-            return message;
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -8,37 +9,31 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemasVentas.DataAccessLayer
-
 {
-    class ClienteDAL
+    public  class VentasDAL
     {
-        //se crea una instancia de la clase DbContext para acceder a la DB
         public static SistemaDBContext dbCtx = new SistemaDBContext();
-
-
-        public static List<Cliente> getClienteByID(int StudentID)
+        public static List<Venta> getVentaByID(int VentaID)
         {
-            List<Cliente> clientes = new List<Cliente>();
+            List<Venta> ventas
+                = new List<Venta>();
+            //SELECT * FROM venta WHERE  Id= '____'
+            ventas = dbCtx.Ventas.Where(x => x.Id == VentaID).ToList();
 
-            //SELECT * FROM STUDENT WHERE  Id= '____'
-            clientes = dbCtx.Clientes.Where(x => x.Id == StudentID).ToList();
-
-            return clientes;
+            return ventas;
         }
-
-        //Metodo para obtener todos los cientes registrados en pocas palabras select * from
-        public static List<Cliente> getAllClientes()
+        //Metodo para obtener todos los estudiantes registrados en pocas palabras select * from
+        public static List<Venta> getAllVentas()
         {
-            List<Cliente> clientes = new List<Cliente>();
+            List<Venta> ventas
+                = new List<Venta>();
 
             //SELECT * FROM STUDENTS
-            clientes = dbCtx.Clientes.ToList();
+            ventas = dbCtx.Ventas.ToList();
 
-            return clientes;
+            return ventas;
         }
-
-
-        public static string insertCliente (Cliente entity)
+        public static string insertVentas(Venta entity)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -61,7 +56,7 @@ namespace SistemasVentas.DataAccessLayer
                         #region //Alternativa #1 - Funcion para insertar en la base de datos por medio de Entity Framework
 
                         //se añade la entidad al contexto
-                        dbCtx.Clientes.Add(entity);
+                        dbCtx.Ventas.Add(entity);
 
                         //Se guardan los cambios en el contexto y se verifica si se efectuo de manera correcta
                         isInserted = dbCtx.SaveChanges() > 0;
@@ -73,6 +68,9 @@ namespace SistemasVentas.DataAccessLayer
                             dbCtxTran.Commit();
                         }
                         #endregion
+
+
+
                     }
 
                 }
@@ -113,8 +111,7 @@ namespace SistemasVentas.DataAccessLayer
 
 
         }
-
-        public static string updateCliente(Cliente original)
+        public static string updateVenta(Venta original)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -136,22 +133,18 @@ namespace SistemasVentas.DataAccessLayer
                         //Funcion para modificar en la base de datos por medio de entity framework
 
                         //Buscamos el objeto a actualizar
-                        var nuevo = dbCtx.Clientes.Find(original.Id);
+                        var nuevo = dbCtx.Ventas.Find(original.Id);
 
                         //validar que el objeto exista
                         if (nuevo != null)
                         {
 
                             //damos valores a modificar
-                            nuevo.Nombre = original.Nombre;
-                            nuevo.Apellidos = original.Apellidos;
-                            nuevo.Sexo = original.Sexo;
-                            nuevo.FechaNacimiento = original.FechaNacimiento;
-                            nuevo.TipoDocumento = original.TipoDocumento;
-                            nuevo.NumeroDocumento = original.NumeroDocumento;
-                            nuevo.Direccion = original.Direccion;
-                            nuevo.Telefono = original.Telefono;
-                            nuevo.Email = original.Email;
+                            nuevo.Fecha = original.Fecha;
+                            nuevo.TipoComporbante = original.TipoComporbante;
+                            nuevo.Serie = original.Serie;
+                            nuevo.Correlativo = original.Correlativo;
+                            nuevo.Igv = original.Igv;
 
                             //se añade la entidad al contexto
                             dbCtx.Entry(nuevo).State = EntityState.Modified;
@@ -208,8 +201,7 @@ namespace SistemasVentas.DataAccessLayer
 
 
         }
-
-        public static string removeCliente(int ClienteId)
+        public static string removeVenta(int VentaId)
         {
             //Esta variable para almacenar los errores del metodo
             string message = string.Empty;
@@ -228,10 +220,10 @@ namespace SistemasVentas.DataAccessLayer
                     if (isDatabaseExist)
                     {
                         //consulta para traer el objeto a eliminar
-                        var objStudent = dbCtx.Clientes.Where(x => x.Id == ClienteId).SingleOrDefault();
+                        var objVenta = dbCtx.Ventas.Where(x => x.Id == VentaId).SingleOrDefault();
 
                         //Consulta para eliminar el objeto
-                        dbCtx.Clientes.Remove(objStudent);
+                        dbCtx.Ventas.Remove(objVenta);
 
                         //Guardo el estatus del borrado
                         isRemoved = dbCtx.SaveChanges() > 0;
@@ -280,5 +272,10 @@ namespace SistemasVentas.DataAccessLayer
             return message;
 
         }
+
     }
+
+   
+
+
 }
