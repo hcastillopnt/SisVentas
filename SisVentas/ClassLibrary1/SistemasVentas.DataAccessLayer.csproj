@@ -54,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteDAL.cs" />
+    <Compile Include="IngresoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrabajadorDAL.cs" />
+    <Compile Include="VentasDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
