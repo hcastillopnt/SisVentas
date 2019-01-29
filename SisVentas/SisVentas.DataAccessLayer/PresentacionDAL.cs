@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessEntities
+namespace SisVentas.DataAccessLayer
 {
-    public class Presentacion
+    class PresentacionDAL
     {
+        public static SiVentasDbContex dbCtx = new SiVentasDbContex();
 
     }
 }
