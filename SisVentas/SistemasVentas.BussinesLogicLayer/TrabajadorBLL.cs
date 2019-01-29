@@ -65,6 +65,8 @@ namespace SistemasVentas.BussinesLogicLayer
             return trabajadors;
         }
 
+        //chuy
+
         //metodo para insertar los estudiantes
     /*    public static string insertTrabajador(Trabajador entity)
         {
