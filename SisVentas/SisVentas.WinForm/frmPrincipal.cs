@@ -16,5 +16,40 @@ namespace SisVentas.WinForm
         {
             InitializeComponent();
         }
+
+        private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria categoria = new frmCategoria();
+            categoria.ShowDialog();
+        }
+
+        private void presentacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPresentacion presentacion = new frmPresentacion();
+            presentacion.ShowDialog();
+        }
+
+        private void trabajadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTrabajador trabajador = new frmTrabajador();
+            trabajador.ShowDialog();
+        }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProveedor proveedor = new frmProveedor();
+            proveedor.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCliente cliente = new frmCliente();
+            cliente.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
