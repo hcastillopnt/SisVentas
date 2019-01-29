@@ -77,6 +77,7 @@ namespace SisVentas.BusinessLogicLayer
             results = new List<ValidationResult>();
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
+
         public static string removeTrabajador(int id)
         {
             string message = string.Empty;
@@ -103,12 +104,61 @@ namespace SisVentas.BusinessLogicLayer
             {
                 if (string.IsNullOrEmpty(trabajador.apellido))
                 {
-                    message = "El descripcion Nombre está vacio, favor de completarlo";
+                    message = "El apellido Nombre está vacio, favor de completarlo";
                 }
                 else
                 {
-                    //Este es el puente entre la Capa de Negocios y el acceso a datos
-                    message = DataAccessLayer.TrabajadorDAL.updateTrabajador(trabajador);
+                    if (string.IsNullOrEmpty(trabajador.num_documento))
+                    {
+                        message = "El DNI está vacio, favor de completarlo";
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(trabajador.direccion))
+                        {
+                            message = "La direccion está vacia, favor de completarla";
+                        }
+                        else
+                        {
+                            if (string.IsNullOrEmpty(trabajador.telefono))
+                            {
+                                message = "El teléfono está vacio, favor de completarla";
+                            }
+                            else
+                            {
+                                if (string.IsNullOrEmpty(trabajador.email))
+                                {
+                                    message = "El email está vacio, favor de completarlo";
+                                }
+                                else
+                                {
+                                    if (string.IsNullOrEmpty(trabajador.acceso))
+                                    {
+                                        message = "No se ha escogido";
+                                    }
+                                    else
+                                    {
+                                        if (string.IsNullOrEmpty(trabajador.usuario))
+                                        {
+                                            message = "El usuario está vacio, favor de completarlo";
+                                        }
+                                        else
+                                        {
+                                            if (string.IsNullOrEmpty(trabajador.password))
+                                            {
+                                                message = "El password está vacio, favor de completarlo";
+                                            }
+                                            else
+                                            {
+                                                //Este es el puente entre la Capa de Negocios y el acceso a datos
+                                                message = DataAccessLayer.TrabajadorDAL.updateTrabajador(trabajador);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             return message;
