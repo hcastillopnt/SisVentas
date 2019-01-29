@@ -19,18 +19,14 @@ namespace SisVentas.BusinessLogicLayer
             switch (bandera)
             {
                 case "nombre":
-                    break;
-                case "descripcion":
                     categorias = DataAccessLayer.CategoriaDAL.getCategoriaByName(Filter);
                     break;
-                
-
+                case "descripcion":
+                    break;
             }
             return categorias;
 
         }
-
-        
 
         public static List<Categoria> getAllCategoria()
         {
@@ -42,8 +38,7 @@ namespace SisVentas.BusinessLogicLayer
 
             return categorias;
         }
-
-
+        
                 //metodo para insertar categorias
         public static string insertCategoria(Categoria entity)
         {
@@ -63,14 +58,11 @@ namespace SisVentas.BusinessLogicLayer
                 }
                 else
                 {
-                  
-
                     //Este es el puent entre la capa dde negocios y el acceso a datos
                     message = DataAccessLayer.CategoriaDAL.insertCategoria(entity);
 
                 }
             }
-
 
             //regresa el mensaje con o sin errores
             return message;
@@ -78,14 +70,39 @@ namespace SisVentas.BusinessLogicLayer
         }
         public static string removeCategoria(int id)
         {
+            string message = string.Empty;
+
             if (id > 0)
             {
                 return DataAccessLayer.CategoriaDAL.removeCategoria(id);
             }
             else
             {
-                return "Error";
+                return message;
             }
+        }
+
+        public static string updateCategoria(Categoria categoria)
+        {
+            //variable para almacenar el mensaje de error en caso de que ocurra alguno
+            string message = string.Empty;
+            if (string.IsNullOrEmpty(categoria.nombre))
+            {
+                message = "El campo nombre esta vacio, favor de completarlo";
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(categoria.descripcion))
+                {
+                    message = "El descripcion Nombre está vacio, favor de completarlo";
+                }
+                else
+                {
+                    //Este es el puente entre la Capa de Negocios y el acceso a datos
+                    message = DataAccessLayer.CategoriaDAL.updateCategoria(categoria);
+                }
+            }
+            return message;
         }
     }
 }

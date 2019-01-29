@@ -90,7 +90,7 @@ namespace SisVentas.DataAccessLayer
 
         #region ACTUALIZAR
 
-        public static string updateStudent(Categoria categoria)
+        public static string updateCategoria(Categoria categoria)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
