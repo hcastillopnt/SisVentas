@@ -48,6 +48,7 @@ namespace ClassLibrary
             //SELECT * FROM STUDENT WHERE  LastName= '____'
             students = dbCtx.Ingresos.Where(x => x.ProveedorId == lastname).ToList();
             return students;
+            //
         }
 
         public static string insertStudent(Ingreso entity)

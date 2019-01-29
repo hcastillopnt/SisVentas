@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//
 namespace SistemasVentas
 {
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]

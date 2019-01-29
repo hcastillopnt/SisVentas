@@ -27,8 +27,7 @@ namespace ClassLibrary1
             //SELECT * FROM STUDENTS
             trabajadors = dbCtx.Trabajadors.ToList();
 
-            return trabajadors
-;
+            return trabajadors;  //
         }
 
         public static List<Trabajador> getTrabajadorByLastName(string apellidos)
