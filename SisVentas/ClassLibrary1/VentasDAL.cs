@@ -18,7 +18,7 @@ namespace SistemasVentas.DataAccessLayer
             List<Venta> ventas
                 = new List<Venta>();
             //SELECT * FROM venta WHERE  Id= '____'
-            ventas = dbCtx.Ventas.Where(x => x. == VentaID).ToList();
+            ventas = dbCtx.Ventas.Where(x => x.Id == VentaID).ToList();
 
             return ventas;
         }
