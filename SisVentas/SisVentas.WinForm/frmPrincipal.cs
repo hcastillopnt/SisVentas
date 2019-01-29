@@ -16,5 +16,17 @@ namespace SisVentas.WinForm
         {
             InitializeComponent();
         }
+
+        private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria categoria = new frmCategoria();
+            categoria.ShowDialog();
+        }
+
+        private void presentacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPresentacion presentacion = new frmPresentacion();
+            presentacion.ShowDialog();
+        }
     }
 }
