@@ -1,61 +1,55 @@
-﻿using System;
+﻿using SistemasVentas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SistemasVentas;
 
-namespace SistemasVentas.BussinesLogicLayer
+namespace BussinesLogicLayer
 {
-   public class ProveedorBLL
+    public class VentaBLL
     {
-        public static List<Proveedor> getProveedorByFilter(string Filter, string bandera)
-        {
-            //almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
-            return Proveedors;
-
-        }
-
-        public static List<Proveedor> getProveedorByID(int ProveedorID)
+       
+    
+        public static List<Venta> getVentaByFecha(DateTime Ventafecha)
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Venta> ventas = new List<Venta>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
+            ventas = DataAccessLayer.VentaDAL.getVentaByFecha(Ventafecha);
 
-            return Proveedors;
-
+            return ventas;
 
         }
 
-        public static List<Proveedor> getAllProveedors()
+        public static List<Venta> getAllVenta()
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Venta> ventas = new List<Venta>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getAllProveedor();
+            ventas = DataAccessLayer.VentaDAL.getAllVentas();
 
-            return Proveedors;
+            return ventas;
         }
-   
-       public static string insertProveedor(Proveedor objProveedor)
-        {
-            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+
+        //metodo para insertar los estudiantes
+        public static string insertVenta(Venta objVenta)
+
+        {//Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if(!validate(objProveedor,out result))
+            if (!validate(objVenta, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.insertProveedor(objProveedor);
+                message = DataAccessLayer.VentaDAL.insertarVenta(objVenta);
             }
 
 
@@ -70,35 +64,36 @@ namespace SistemasVentas.BussinesLogicLayer
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
 
-        public static string updateProveedor(Proveedor objProveedor)
+
+        public static string updateVenta(Venta objVenta)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if (!validate(objProveedor, out result))
+            if (!validate(objVenta, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.updateProveedor(objProveedor);
+                message = DataAccessLayer.VentaDAL.updateVenta(objVenta);
             }
-       
+
             //regresa el mensaje con o sin errores
             return message;
         }
 
-        public static string removeProveedor(int ProveedorID)
+        public static string removeStudent(int VentaID)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
-            if (ProveedorID > 0)
+            if (VentaID > 0)
             {
 
-                return SistemasVentas.DataAccessLayer.ProveedorDAL.removeProveedor(ProveedorID);
+                return DataAccessLayer.VentaDAL.removeVenta(VentaID);
 
             }
             else

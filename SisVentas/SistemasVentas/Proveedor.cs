@@ -13,6 +13,7 @@ namespace SistemasVentas
         public int Id { get; set; }
 
 
+
         [Required(ErrorMessage = "El campo RazonSocial es obligatorio")]//Obligatorio
         [StringLength(150, ErrorMessage = "La longitud es de 150 caracteres")]//Longitud de la cadena
         public string RazonSocial { get; set; }

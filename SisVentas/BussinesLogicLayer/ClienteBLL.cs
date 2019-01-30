@@ -1,61 +1,64 @@
-﻿using System;
+﻿using SistemasVentas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SistemasVentas;
 
-namespace SistemasVentas.BussinesLogicLayer
+namespace BussinesLogicLayer
 {
-   public class ProveedorBLL
+    public class ClienteBLL
     {
-        public static List<Proveedor> getProveedorByFilter(string Filter, string bandera)
-        {
-            //almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
-            return Proveedors;
-
-        }
-
-        public static List<Proveedor> getProveedorByID(int ProveedorID)
+        public static List<Cliente> getClienteByID(int ClienteID)
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Cliente> clientes = new List<Cliente>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
+            clientes = DataAccessLayer.ClienteDAL.getClienteByID(ClienteID);
 
-            return Proveedors;
-
+            return clientes;
 
         }
-
-        public static List<Proveedor> getAllProveedors()
+        public static List<Cliente> getClienteByApellido(string Apellido)
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Cliente> clientes = new List<Cliente>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getAllProveedor();
+            clientes = DataAccessLayer.ClienteDAL.getClientebyApellidos(Apellido);
 
-            return Proveedors;
+            return clientes;
+
         }
-   
-       public static string insertProveedor(Proveedor objProveedor)
+
+        public static List<Cliente> getAllCliente()
         {
-            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+            //Lista para almacenar el objeto a buscar
+            List<Cliente> clientes = new List<Cliente>();
+
+            //Puente entre el DataAccessLayer y el BussinesLogicLayer
+           clientes = DataAccessLayer.ClienteDAL.getAllCliente();
+
+            return clientes;
+        }
+
+        //metodo para insertar los estudiantes
+        public static string insertCliente(Cliente objCliente)
+
+        {//Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if(!validate(objProveedor,out result))
+            if (!validate(objCliente, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.insertProveedor(objProveedor);
+                message = DataAccessLayer.ClienteDAL.insertarCliente(objCliente);
             }
 
 
@@ -70,35 +73,36 @@ namespace SistemasVentas.BussinesLogicLayer
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
 
-        public static string updateProveedor(Proveedor objProveedor)
+
+        public static string updatecliente(Cliente objCliente)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if (!validate(objProveedor, out result))
+            if (!validate(objCliente, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.updateProveedor(objProveedor);
+                message = DataAccessLayer.ClienteDAL.updateCliente(objCliente);
             }
-       
+
             //regresa el mensaje con o sin errores
             return message;
         }
 
-        public static string removeProveedor(int ProveedorID)
+        public static string removeCliente(int ClienteID)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
-            if (ProveedorID > 0)
+            if (ClienteID > 0)
             {
 
-                return SistemasVentas.DataAccessLayer.ProveedorDAL.removeProveedor(ProveedorID);
+                return DataAccessLayer.ClienteDAL.removeCliente(ClienteID);
 
             }
             else
@@ -107,5 +111,7 @@ namespace SistemasVentas.BussinesLogicLayer
             }
 
         }
+
+        
     }
 }

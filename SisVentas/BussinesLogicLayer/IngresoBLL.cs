@@ -1,61 +1,53 @@
-﻿using System;
+﻿using SistemasVentas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SistemasVentas;
 
-namespace SistemasVentas.BussinesLogicLayer
+namespace BussinesLogicLayer
 {
-   public class ProveedorBLL
+    public class IngresoBLL
     {
-        public static List<Proveedor> getProveedorByFilter(string Filter, string bandera)
-        {
-            //almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
-            return Proveedors;
-
-        }
-
-        public static List<Proveedor> getProveedorByID(int ProveedorID)
+        public static List<Ingreso> getProveedorByID(int IngresoID)
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Ingreso> ingresos = new List<Ingreso>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
+            ingresos = DataAccessLayer.IngresoDAL.getIngresoByID(IngresoID);
 
-            return Proveedors;
-
+            return ingresos;
 
         }
 
-        public static List<Proveedor> getAllProveedors()
+        public static List<Ingreso> getAllIngreso()
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Ingreso> ingresos = new List<Ingreso>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getAllProveedor();
+            ingresos = DataAccessLayer.IngresoDAL.getAllIngreso();
 
-            return Proveedors;
+            return ingresos;
         }
-   
-       public static string insertProveedor(Proveedor objProveedor)
-        {
-            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+
+        //metodo para insertar los estudiantes
+        public static string insertIngreso(Ingreso objIngreso)
+
+        {//Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if(!validate(objProveedor,out result))
+            if (!validate(objIngreso, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.insertProveedor(objProveedor);
+                message = DataAccessLayer.IngresoDAL.insertarIngreso(objIngreso);
             }
 
 
@@ -70,35 +62,36 @@ namespace SistemasVentas.BussinesLogicLayer
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
 
-        public static string updateProveedor(Proveedor objProveedor)
+
+        public static string updateIngreso(Ingreso objIngreso)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if (!validate(objProveedor, out result))
+            if (!validate(objIngreso, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.updateProveedor(objProveedor);
+                message = DataAccessLayer.IngresoDAL.updateInngreso(objIngreso);
             }
-       
+
             //regresa el mensaje con o sin errores
             return message;
         }
 
-        public static string removeProveedor(int ProveedorID)
+        public static string removeProveedor(int IngresoID)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
-            if (ProveedorID > 0)
+            if (IngresoID > 0)
             {
 
-                return SistemasVentas.DataAccessLayer.ProveedorDAL.removeProveedor(ProveedorID);
+                return DataAccessLayer.IngresoDAL.removeIngreso(IngresoID);
 
             }
             else
@@ -107,5 +100,6 @@ namespace SistemasVentas.BussinesLogicLayer
             }
 
         }
+
     }
 }

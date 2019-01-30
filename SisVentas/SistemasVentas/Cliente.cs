@@ -20,6 +20,7 @@ namespace SistemasVentas
 
 
 
+
         [Required(ErrorMessage = "El campo Apellidos es obligatorio")]//Obligatorio
         [StringLength(40, ErrorMessage = "La longitud es de 40 caracteres")]//Longitud de la cadena
         public string Apellidos { get; set; }
