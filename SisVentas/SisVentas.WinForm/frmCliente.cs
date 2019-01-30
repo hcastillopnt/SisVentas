@@ -260,6 +260,7 @@ namespace SisVentas.WinForm
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            //prueba
             if (txtIdcliente.Text != "")
             {
                 int clienteid = Convert.ToInt32(txtIdcliente.Text);
