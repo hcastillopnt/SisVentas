@@ -11,19 +11,12 @@ namespace SisVentas.BusinessLogicLayer
 {
     public class CategoriaBLL
     {
-        public static List<Categoria> getCategoriaByFilter(string Filter, string bandera)
+        public static List<Categoria> getCategoriaByName(string name)
         {
             //Lista para almacenar el objeto a buscar
             List<Categoria> categorias = new List<Categoria>();
-
-            switch (bandera)
-            {
-                case "nombre":
-                    categorias = DataAccessLayer.CategoriaDAL.getCategoriaByName(Filter);
-                    break;
-                case "descripcion":
-                    break;
-            }
+            categorias = DataAccessLayer.CategoriaDAL.getCategoriaByName(name);
+                    
             return categorias;
 
         }

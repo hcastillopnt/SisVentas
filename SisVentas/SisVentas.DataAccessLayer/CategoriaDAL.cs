@@ -7,6 +7,8 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace SisVentas.DataAccessLayer
 {

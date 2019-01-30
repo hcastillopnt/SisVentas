@@ -20,7 +20,6 @@ namespace BusinessEntities
         [StringLength(30, ErrorMessage = "La longuitud es de 30 caracteres")]
         public string apellido { get; set; }
 
-        [StringLength(1, ErrorMessage = "La longuitud es de 1 caracter")]
         public char sexo { get; set; }
 
         [Required(ErrorMessage = " El campo fecha_nacimiento es obligatorio ")]
@@ -28,7 +27,7 @@ namespace BusinessEntities
         public DateTime fecha_nacimiento { get; set; }
 
         [Required(ErrorMessage = "El campo Numero de documento es obligatorio")]
-        [StringLength(8, ErrorMessage = "La longuitud es de 8 caracteres")]
+        [StringLength(15, ErrorMessage = "La longuitud es de 8 caracteres")]
         public String num_documento { get; set; }
 
         [StringLength(50, ErrorMessage = "La longuitud es de 50 caracteres")]
@@ -39,9 +38,7 @@ namespace BusinessEntities
 
         [StringLength(30, ErrorMessage = "La longuitud es de 30 caracteres")]
         public string email { get; set; }
-
-        [Required(ErrorMessage = "El campo acceso de documento es obligatorio")]
-        [StringLength(20, ErrorMessage = "El acceso es de 20 caracteres")]
+        
         public string acceso { get; set; }
 
         [Required(ErrorMessage = "El campo usuario de documento es obligatorio")]
