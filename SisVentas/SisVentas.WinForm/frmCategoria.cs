@@ -21,7 +21,6 @@ namespace SisVentas.WinForm
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //Crea la instancia del objeto a trabajar
-            //***Agregue sola la libreria bussniess entity 
             Categoria categoria = new Categoria();
 
             //Declaramos variables y las igualamos a las cajas de texto
@@ -31,7 +30,7 @@ namespace SisVentas.WinForm
             //Asignamos variables
             categoria.nombre = nombre;
             categoria.descripcion = descripcion;
-            
+
             //Puente entre el BusinessLogicLayer y la interfaz Grafica
             String message = SisVentas.BusinessLogicLayer.CategoriaBLL.insertCategoria(categoria);
 
@@ -39,14 +38,31 @@ namespace SisVentas.WinForm
             if (string.IsNullOrEmpty(message))
             {
                 //Si no hubo errores, muestra un mensaje de confirmacion
-                MessageBox.Show("El registro ha sido guardado correctamente");
+                MessageBox.Show("El registro ha sido creado correctamente");
 
+                //Precargado
                 dataListado.DataSource = SisVentas.BusinessLogicLayer.CategoriaBLL.getAllCategoria();
+               
             }
             else
             {
                 MessageBox.Show(message);
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
