@@ -64,5 +64,10 @@ namespace SisVentas.WinForm
             //    MessageBox.Show(message);
             //}
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
