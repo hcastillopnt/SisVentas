@@ -61,13 +61,14 @@ namespace SisVentas.BusinessLogicLayer
             return message;
 
         }
-        public static string removeCategoria(int id)
+        public static string removeCategoria(string name)
         {
             string message = string.Empty;
 
-            if (id > 0)
+            if (!(name.Equals("")))
             {
-                return DataAccessLayer.CategoriaDAL.removeCategoria(id);
+                return DataAccessLayer.CategoriaDAL.removeCategoria(name);
+
             }
             else
             {

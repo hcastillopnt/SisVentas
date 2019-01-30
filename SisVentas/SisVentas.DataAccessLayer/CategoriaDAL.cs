@@ -175,7 +175,7 @@ namespace SisVentas.DataAccessLayer
         #endregion
         
 
-        public static string removeCategoria(int Id)
+        public static string removeCategoria(string nombre)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -197,7 +197,7 @@ namespace SisVentas.DataAccessLayer
                         #region Alternativa #1 - Eliminando con Entity Framework
                         //Consultar para obtener el objeto a eliminar
                         //var objStudent = dbCtx.Students.Find(Id);
-                        var objCategoria = dbCtx.Categorias.Where(x => x.id == Id).SingleOrDefault();//Puede ser esta también para que elimine
+                        var objCategoria = dbCtx.Categorias.Where(x => x.nombre == nombre).SingleOrDefault();//Puede ser esta también para que elimine
 
                         //Consulta para eliminar el objeto
                         dbCtx.Categorias.Remove(objCategoria);
