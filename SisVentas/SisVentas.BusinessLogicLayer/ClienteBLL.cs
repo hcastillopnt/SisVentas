@@ -12,93 +12,77 @@ namespace SisVentas.BusinessLogicLayer
         public static List<Cliente> getClienteByFilter(string Filter, string bandera)
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajador = new List<Trabajador>();
+            List<Cliente> clientes = new List<Cliente>();
 
             switch (bandera)
             {
                 case "documento":
-                    trabajador = DataAccessLayer.TrabajadorDAL.getTrabajadorByDocument(Filter);
+                    clientes = DataAccessLayer.ClienteDAL.getClienteByDocument(Filter);
                     break;
                 case "apellido":
-                    trabajador = DataAccessLayer.TrabajadorDAL.getTrabajadorByLastName(Filter);
+                     clientes = DataAccessLayer.ClienteDAL.getClienteByLastName(Filter);
                     break;
             }
-            return trabajador;
+            return clientes;
 
         }
 
-        public static List<Trabajador> getAllTrabajador()
+        public static List<Cliente> getAllClientes()
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajadors = new List<Trabajador>();
+            List<Cliente> clientes = new List<Cliente>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            trabajadors = DataAccessLayer.TrabajadorDAL.getAllTrabajador();
+            clientes = DataAccessLayer.ClienteDAL.getAllCliente();
 
-            return trabajadors;
+            return clientes;
         }
 
         //metodo para insertar trabajadores
-        public static string insertTrabajador(Trabajador trabajador)
+        public static string insertCliente(Cliente cliente)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             //primera validacion - Verificar los campos vacios
-            if (string.IsNullOrEmpty(trabajador.nombre))
+            if (string.IsNullOrEmpty(cliente.nombre))
             {
                 message = "El campo nombre esta vacio, favor de completarlo";
             }
             else
             {
-                if (string.IsNullOrEmpty(trabajador.apellido))
+                if (string.IsNullOrEmpty(cliente.apellido))
                 {
                     message = "El apellido Nombre está vacio, favor de completarlo";
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(trabajador.num_documento))
+                    if (string.IsNullOrEmpty(cliente.num_documento))
                     {
                         message = "El DNI está vacio, favor de completarlo";
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(trabajador.direccion))
+                        if (string.IsNullOrEmpty(cliente.direccion))
                         {
                             message = "La direccion está vacia, favor de completarla";
                         }
                         else
                         {
-                            if (string.IsNullOrEmpty(trabajador.telefono))
+                            if (string.IsNullOrEmpty(cliente.telefono))
                             {
                                 message = "El teléfono está vacio, favor de completarla";
                             }
                             else
                             {
-                                if (string.IsNullOrEmpty(trabajador.email))
+                                if (string.IsNullOrEmpty(cliente.email))
                                 {
                                     message = "El email está vacio, favor de completarlo";
                                 }
                                 else
-                                {
-
-                                    if (string.IsNullOrEmpty(trabajador.usuario))
-                                    {
-                                        message = "El usuario está vacio, favor de completarlo";
-                                    }
-                                    else
-                                    {
-                                        if (string.IsNullOrEmpty(trabajador.password))
-                                        {
-                                            message = "El password está vacio, favor de completarlo";
-                                        }
-                                        else
-                                        {
-                                            //Este es el puente entre la Capa de Negocios y el acceso a datos
-                                            message = DataAccessLayer.TrabajadorDAL.insertTrabajador(trabajador);
-                                        }
-                                    }
-
+                                {                                            
+                                    //Este es el puente entre la Capa de Negocios y el acceso a datos
+                                            message = DataAccessLayer.ClienteDAL.insertCliente(cliente);
                                 }
                             }
                         }
@@ -111,13 +95,13 @@ namespace SisVentas.BusinessLogicLayer
 
         }
 
-        public static string removeTrabajador(int id)
+        public static string removeCliente(int id)
         {
             string message = string.Empty;
 
             if (id > 0)
             {
-                return DataAccessLayer.TrabajadorDAL.removeTrabajador(id);
+                return DataAccessLayer.ClienteDAL.removeCliente(id);
             }
             else
             {
@@ -125,69 +109,50 @@ namespace SisVentas.BusinessLogicLayer
             }
         }
 
-        public static string updateTrabajador(Trabajador trabajador)
+        public static string updateCliente(Cliente cliente)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
-            if (string.IsNullOrEmpty(trabajador.nombre))
+            if (string.IsNullOrEmpty(cliente.nombre))
             {
                 message = "El campo nombre esta vacio, favor de completarlo";
             }
             else
             {
-                if (string.IsNullOrEmpty(trabajador.apellido))
+                if (string.IsNullOrEmpty(cliente.apellido))
                 {
                     message = "El apellido Nombre está vacio, favor de completarlo";
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(trabajador.num_documento))
+                    if (string.IsNullOrEmpty(cliente.num_documento))
                     {
                         message = "El DNI está vacio, favor de completarlo";
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(trabajador.direccion))
+                        if (string.IsNullOrEmpty(cliente.direccion))
                         {
                             message = "La direccion está vacia, favor de completarla";
                         }
                         else
                         {
-                            if (string.IsNullOrEmpty(trabajador.telefono))
+                            if (string.IsNullOrEmpty(cliente.telefono))
                             {
                                 message = "El teléfono está vacio, favor de completarla";
                             }
                             else
                             {
-                                if (string.IsNullOrEmpty(trabajador.email))
+                                if (string.IsNullOrEmpty(cliente.email))
                                 {
                                     message = "El email está vacio, favor de completarlo";
                                 }
                                 else
                                 {
-                                    if (string.IsNullOrEmpty(trabajador.acceso))
-                                    {
-                                        message = "No se ha escogido";
-                                    }
-                                    else
-                                    {
-                                        if (string.IsNullOrEmpty(trabajador.usuario))
-                                        {
-                                            message = "El usuario está vacio, favor de completarlo";
-                                        }
-                                        else
-                                        {
-                                            if (string.IsNullOrEmpty(trabajador.password))
-                                            {
-                                                message = "El password está vacio, favor de completarlo";
-                                            }
-                                            else
-                                            {
+                                    
                                                 //Este es el puente entre la Capa de Negocios y el acceso a datos
-                                                message = DataAccessLayer.TrabajadorDAL.updateTrabajador(trabajador);
-                                            }
-                                        }
-                                    }
+                                                message = DataAccessLayer.ClienteDAL.updateCliente(cliente);
+                                         
                                 }
                             }
                         }
