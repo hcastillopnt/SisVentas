@@ -400,15 +400,16 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
+    <Folder Include="SistemasVentas\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\SistemasVentas.DataAccessLayer.csproj">
-      <Project>{872c05a3-acd5-4a6b-959c-2bea6be5c289}</Project>
-      <Name>SistemasVentas.DataAccessLayer</Name>
+    <ProjectReference Include="..\BussinesLogicLayer\BussinesLogicLayer.csproj">
+      <Project>{dc6f0945-a3f0-41bd-9f51-112a1484fb24}</Project>
+      <Name>BussinesLogicLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SistemasVentas.BussinesLogicLayer\SistemasVentas.BussinesLogicLayer.csproj">
-      <Project>{7c54756b-52ff-47ef-97bb-4883cab95ae0}</Project>
-      <Name>SistemasVentas.BussinesLogicLayer</Name>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{1528c7a0-59d9-4423-b5b7-8e59443918b6}</Project>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\SistemasVentas\SistemasVentas.csproj">
       <Project>{076f1d5e-9e12-4499-b643-642f51c468bc}</Project>

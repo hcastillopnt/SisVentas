@@ -13,7 +13,7 @@ namespace SistemasVentas.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201901291736163_initial"; }
+            get { return "201901300536598_initial"; }
         }
         
         string IMigrationMetadata.Source
