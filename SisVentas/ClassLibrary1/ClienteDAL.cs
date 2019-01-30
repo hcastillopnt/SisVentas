@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SistemasVentas.DataAccessLayer
 
 {
-    class ClienteDAL
+   public  class ClienteDAL
     {
         //se crea una instancia de la clase DbContext para acceder a la DB
         public static SistemaDBContext dbCtx = new SistemaDBContext();

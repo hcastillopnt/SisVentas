@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.BussinesLogicLayer
 {
-   public  class ClienteBLL
+    public class ClienteBLL
     {
 
         public static List<Cliente> getClienteByFilter(string Filter, string bandera)
@@ -67,9 +67,9 @@ namespace SistemasVentas.BussinesLogicLayer
                 message = "El campo Nombre esta vacio, favor de completarlo";
             }
             else if (string.IsNullOrEmpty(entity.Apellidos))
-                {
-                    message = "El campo Apellido esta vacío, favor de completarlo";
-                }
+            {
+                message = "El campo Apellido esta vacío, favor de completarlo";
+            }
             else if (entity.FechaNacimiento == DateTime.Now)
             {
                 message = "La fecha de nacimiento es incorrecto / no pudo nacer hoy";
@@ -105,9 +105,72 @@ namespace SistemasVentas.BussinesLogicLayer
 
         }
 
-            
+        public static string updateCliente(Cliente entity)
+        {
+            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+            string message = string.Empty;
+
+            //primera validacion - Verificar los campos vacios
+            if (string.IsNullOrEmpty(entity.Nombre))
+            {
+                message = "El campo Nombre esta vacio, favor de completarlo";
+            }
+            else if (string.IsNullOrEmpty(entity.Apellidos))
+            {
+                message = "El campo Apellido esta vacío, favor de completarlo";
+            }
+            else if (entity.FechaNacimiento == DateTime.Now)
+            {
+                message = "La fecha de nacimiento es incorrecto / no pudo nacer hoy";
+            }
+            else if (string.IsNullOrEmpty(entity.TipoDocumento))
+            {
+                message = "El campo tipo de documento esta vacío, favor de completarlo";
+            }
+            else if (string.IsNullOrEmpty(entity.NumeroDocumento))
+            {
+                message = "El campo numero de documento esta vacío, favor de completarlo";
+            }
+            else if (string.IsNullOrEmpty(entity.Direccion))
+            {
+                message = "El campo direccion esta vacío, favor de completarlo";
+            }
+            else if (string.IsNullOrEmpty(entity.Telefono))
+            {
+                message = "El campo telefono esta vacío, favor de completarlo";
+            }
+            else if (string.IsNullOrEmpty(entity.Email))
+            {
+                message = "El campo email esta vacío, favor de completarlo";
+            }
+            else
+            {
+                //Este es el puent entre la capa dde negocios y el acceso a datos
+                message = DataAccessLayer.ClienteDAL.updateCliente(entity);
+            }
+
+            //regresa el mensaje con o sin errores
+            return message;
 
         }
 
+        public static string removeCliente(int ClienteId)
+        {
+            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+            string message = string.Empty;
+
+            if (ClienteId > 0)
+            {
+
+                return DataAccessLayer.ClienteDAL.removeCliente(ClienteId);
+
+            }
+            else
+            {
+                return "Error";
+            }
+        }
+
     }
+}
 
