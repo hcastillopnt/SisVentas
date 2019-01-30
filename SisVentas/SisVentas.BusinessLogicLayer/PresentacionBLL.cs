@@ -60,13 +60,14 @@ namespace SisVentas.BusinessLogicLayer
 
         }
 
-        public static string removePresentacion(int id)
+        public static string removePresentacion(string name)
         {
             string message = string.Empty;
 
-            if (id > 0)
+            if (!(name.Equals("")))
             {
-                return DataAccessLayer.PresentacionDAL.removePresentacion(id);
+                return DataAccessLayer.PresentacionDAL.removePresentacion(name);
+                
             }
             else
             {

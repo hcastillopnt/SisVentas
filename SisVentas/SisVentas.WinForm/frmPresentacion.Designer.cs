@@ -42,7 +42,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.chkEliminar = new System.Windows.Forms.CheckBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,8 +72,9 @@
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Location = new System.Drawing.Point(88, 110);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -85,8 +85,9 @@
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(88, 71);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(226, 20);
             this.txtNombre.TabIndex = 4;
@@ -96,7 +97,7 @@
             this.txtIdpresentacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtIdpresentacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdpresentacion.Location = new System.Drawing.Point(88, 32);
-            this.txtIdpresentacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdpresentacion.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdpresentacion.Name = "txtIdpresentacion";
             this.txtIdpresentacion.Size = new System.Drawing.Size(94, 20);
             this.txtIdpresentacion.TabIndex = 3;
@@ -148,9 +149,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(10, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(498, 224);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -162,7 +163,7 @@
             this.btnCancelar.Image = global::SisVentas.WinForm.Properties.Resources.error2;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(383, 183);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 27);
             this.btnCancelar.TabIndex = 9;
@@ -176,12 +177,13 @@
             this.btnEditar.Image = global::SisVentas.WinForm.Properties.Resources.modificar;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(281, 183);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(80, 27);
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "E&ditar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -189,12 +191,13 @@
             this.btnGuardar.Image = global::SisVentas.WinForm.Properties.Resources.disco;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(186, 183);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 27);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnNuevo
             // 
@@ -202,28 +205,19 @@
             this.btnNuevo.Image = global::SisVentas.WinForm.Properties.Resources.nuevo;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(88, 183);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(80, 26);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(375, 64);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(35, 13);
-            this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "label3";
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // chkEliminar
             // 
             this.chkEliminar.AutoSize = true;
             this.chkEliminar.Location = new System.Drawing.Point(10, 64);
-            this.chkEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.chkEliminar.Name = "chkEliminar";
             this.chkEliminar.Size = new System.Drawing.Size(62, 17);
             this.chkEliminar.TabIndex = 5;
@@ -233,7 +227,7 @@
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(78, 28);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(133, 20);
             this.txtBuscar.TabIndex = 1;
@@ -263,7 +257,7 @@
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
             this.dataListado.Location = new System.Drawing.Point(10, 87);
-            this.dataListado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataListado.Margin = new System.Windows.Forms.Padding(2);
             this.dataListado.MultiSelect = false;
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
@@ -275,7 +269,6 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataListado);
-            this.tabPage1.Controls.Add(this.lblTotal);
             this.tabPage1.Controls.Add(this.chkEliminar);
             this.tabPage1.Controls.Add(this.btnImprimir);
             this.tabPage1.Controls.Add(this.btnEliminar);
@@ -283,9 +276,9 @@
             this.tabPage1.Controls.Add(this.txtBuscar);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(540, 263);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
@@ -297,7 +290,7 @@
             this.btnImprimir.Image = global::SisVentas.WinForm.Properties.Resources.imprimir;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.Location = new System.Drawing.Point(427, 27);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(88, 28);
             this.btnImprimir.TabIndex = 4;
@@ -310,12 +303,13 @@
             this.btnEliminar.Image = global::SisVentas.WinForm.Properties.Resources.eliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(329, 27);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(81, 28);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
@@ -323,12 +317,13 @@
             this.btnBuscar.Image = global::SisVentas.WinForm.Properties.Resources.Buscar_p;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(234, 27);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(79, 28);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label1
             // 
@@ -346,9 +341,9 @@
             // 
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(540, 263);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
@@ -359,7 +354,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(9, 46);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(548, 289);
@@ -370,7 +365,7 @@
             this.pictureBox1.BackgroundImage = global::SisVentas.WinForm.Properties.Resources.testtube;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(198, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 48);
             this.pictureBox1.TabIndex = 5;
@@ -385,9 +380,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPresentacion";
             this.Text = ".:. Mantenimiento de Presentaciones .:.";
+            this.Load += new System.EventHandler(this.frmPresentacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -411,7 +407,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataListado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.CheckBox chkEliminar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnEliminar;
