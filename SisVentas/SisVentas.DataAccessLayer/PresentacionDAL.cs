@@ -82,15 +82,15 @@ namespace SisVentas.DataAccessLayer
                 return message;
             }
         }
-        public static List<Presentacion> getAllPresentaciones()
-        {
-            List<Presentacion> presentacions = new List<Presentacion>();
+            public static List<Presentacion> getAllPresentaciones()
+            {
+                List<Presentacion> presentacions = new List<Presentacion>();
 
-            presentacions = dbCtx.Presentaciones.ToList();
+                presentacions = dbCtx.Presentaciones.ToList();
 
 
-            return presentacions;
-        }
+                return presentacions;
+            }
 
         public static List<Presentacion> getPresentacionByNom(string PresetacionNom)
         {
