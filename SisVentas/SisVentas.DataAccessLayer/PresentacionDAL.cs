@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SisVentas.DataAccessLayer
 {
-   public class PresentacionDAL
+    public class PresentacionDAL
     {
         public static SisVentasDbContext dbCtx = new SisVentasDbContext();
         public static string InsertarPresentacion(Presentacion entity)
@@ -248,8 +248,12 @@ namespace SisVentas.DataAccessLayer
                     dbCtxTran.Rollback();
                 }
             }
-            //return
+
             return message;
         }
+
+
+
+
     }
 }

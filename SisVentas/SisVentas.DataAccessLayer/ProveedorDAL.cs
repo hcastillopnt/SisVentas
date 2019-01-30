@@ -46,6 +46,16 @@ namespace SisVentas.DataAccessLayer
             return proveedores;
 
         }
+        public static List<Proveedor> getProveedorByRazonSocial(string RazonSocial)
+        {
+            List<Proveedor> proveedores = new List<Proveedor>();
+
+
+            proveedores = dbCtx.Proveedores.Where(x => x.RazonSocial == RazonSocial).ToList();
+
+            return proveedores;
+
+        }
 
         #region Método para insertar
         //Metodo para insertar en la tabla student
