@@ -22,8 +22,8 @@ namespace SisVentas.WinForm
         private void frmCliente_Load(object sender, EventArgs e)
         {
             //Precargando la informacion del grid por medio de la BD desde el principio
-            dataListado.DataSource = BussinesLogicLayer.ClienteBLL.getAllCliente();
-
+            dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+            txtIdcliente.Enabled = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace SisVentas.WinForm
                 cliente.Id = Id;
 
                 //Puente entre le BussinesLogiclayer y la interfaz grafica
-                string message = BussinesLogicLayer.ClienteBLL.updatecliente(cliente);
+                string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.updateCliente(cliente);
 
                 //Es para validar si ocurrio algun error
                 if (string.IsNullOrEmpty(message))
@@ -71,8 +71,8 @@ namespace SisVentas.WinForm
                     MessageBox.Show("El registro ha sido actualizado correctamente");
 
                     //Precargando la informacion del grid por medio de la BD
-                    dataListado.DataSource = BussinesLogicLayer.ClienteBLL.getAllCliente();
-
+                    dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+                    bloquear();
                 }
                 else
                 {
@@ -84,7 +84,7 @@ namespace SisVentas.WinForm
             {
                 #endregion
                 //Puente entre le BussinesLogiclayer y la interfaz grafica
-                string message = BussinesLogicLayer.ClienteBLL.insertCliente(cliente);
+                string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.insertCliente(cliente);
 
                 //Es para validar si ocurrio algun error
                 if (string.IsNullOrEmpty(message))
@@ -92,8 +92,8 @@ namespace SisVentas.WinForm
                     MessageBox.Show("El registro ha sido creado correctamente");
 
                     //Precargando la informacion del grid por medio de la BD
-                    dataListado.DataSource = BussinesLogicLayer.ClienteBLL.getAllCliente();
-
+                    dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+                    bloquear();
                 }
                 else
                 {
@@ -112,6 +112,7 @@ namespace SisVentas.WinForm
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            bloquear();
             //declara en instanciar la lista para almacenar el estudiante a buscar
             List<Cliente> clientes = new List<Cliente>();
 
@@ -122,9 +123,9 @@ namespace SisVentas.WinForm
             clienteId = Convert.ToInt32(txtBuscar.Text.Trim().ToString());
 
             //hacer el puente entre la capa de negocios y la UI
-            clientes = BussinesLogicLayer.ClienteBLL.getClienteByID(clienteId);
+            clientes = SistemasVentas.BussinesLogicLayer.ClienteBLL.getClienteByID(clienteId);
 
-            
+
 
             //Mostrar los datos obtenidos en los textbox
             foreach (var i in clientes)
@@ -139,16 +140,33 @@ namespace SisVentas.WinForm
                 txtTelefono.Text = i.Telefono;
                 txtEmail.Text = i.Email;
 
-             
+
             }
 
             //Cargar en el grid el objeto que se busca
             dataListado.DataSource = clientes;
 
-            }
+        }
 
         private void dataListado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            desbloquear();
+        }
+
+        private void dataListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
             //validar si  seleccione la fila
             if (e.RowIndex >= 0)
             {
@@ -167,12 +185,76 @@ namespace SisVentas.WinForm
                 txtTelefono.Text = row.Cells["Telefono"].Value.ToString();
                 txtEmail.Text = row.Cells["Email"].Value.ToString();
 
+                bloquear();
+
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void chkEliminar_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+        void limpiar()
+        {
+            txtIdcliente.Text = "";
+            txtNombre.Text = "";
+            txtApellidos.Text = "";
+            //cbSexo.SelectedItem = row.Cells["Sexo"].Value.ToString();
+            //dtFechaNac.Value = row.Cells["FechaNacimiento"].;
+           // cbTipo_Documento.SelectedItem = row.Cells["TipoDocumento"].Value.ToString();
+            txtNum_Documento.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            txtEmail.Text = "";
+        }
+        
+        void bloquear()
+        {
+            txtIdcliente.Enabled = false;
+            txtNombre.Enabled = false;
+            txtApellidos.Enabled = false;
+            cbSexo.Enabled = false;
+            dtFechaNac.Enabled = false;
+            cbTipo_Documento.Enabled = false;
+            txtNum_Documento.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtTelefono.Enabled = false;
+            txtEmail.Enabled = false;
+
+        }
+        void desbloquear()
+        {
+            
+            txtNombre.Enabled = true;
+            txtApellidos.Enabled = true;
+            cbSexo.Enabled = true;
+            dtFechaNac.Enabled = true;
+            cbTipo_Documento.Enabled = true;
+            txtNum_Documento.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtEmail.Enabled = true;
+        }
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            desbloquear();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            bloquear();
+            limpiar();
         }
     }
 }
