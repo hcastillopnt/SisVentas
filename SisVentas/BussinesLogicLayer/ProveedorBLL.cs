@@ -1,69 +1,53 @@
-﻿using System;
+﻿using SistemasVentas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SistemasVentas;
 
-namespace SistemasVentas.BussinesLogicLayer
+namespace BussinesLogicLayer
 {
-   public class ProveedorBLL
+    public class ProveedorBLL
     {
-        public static List<Proveedor> getProveedorByFilter(string Filter, string bandera)
-        {
-            //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
-        
-            switch (bandera)
-            {
-                case "ProveedorId":
-                    int ProveedorID = Convert.ToInt32(Filter);
-                    Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
-                    break;
-            }
-            return Proveedors;
-
-        }
-
         public static List<Proveedor> getProveedorByID(int ProveedorID)
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Proveedor> proveedors = new List<Proveedor>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
+            proveedors = DataAccessLayer.ProveedoresDAL.getProveedorByID(ProveedorID);
 
-            return Proveedors;
-
+            return proveedors;
 
         }
 
         public static List<Proveedor> getAllProveedor()
         {
             //Lista para almacenar el objeto a buscar
-            List<Proveedor> Proveedors = new List<Proveedor>();
+            List<Proveedor> proveedors = new List<Proveedor>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getAllProveedor();
+            proveedors = DataAccessLayer.ProveedoresDAL.getAllProveedor();
 
-            return Proveedors;
+            return proveedors ;
         }
-   
-       public static string insertProveedor(Proveedor objProveedor)
-        {
-            //Variable para almacenar el mensaje de error en caso de que ocurra alguno
+
+        //metodo para insertar los estudiantes
+        public static string insertProveedor(Proveedor objProveedor)
+
+        {//Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if(!validate(objProveedor,out result))
+            if (!validate(objProveedor, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.insertProveedor(objProveedor);
+                message = DataAccessLayer.ProveedoresDAL.insertarProveedor(objProveedor);
             }
 
 
@@ -78,6 +62,7 @@ namespace SistemasVentas.BussinesLogicLayer
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
 
+
         public static string updateProveedor(Proveedor objProveedor)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
@@ -91,9 +76,9 @@ namespace SistemasVentas.BussinesLogicLayer
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.updateProveedor(objProveedor);
+                message = DataAccessLayer.ProveedoresDAL.updateProveedor(objProveedor);
             }
-       
+
             //regresa el mensaje con o sin errores
             return message;
         }
@@ -106,13 +91,14 @@ namespace SistemasVentas.BussinesLogicLayer
             if (ProveedorID > 0)
             {
 
-                return SistemasVentas.DataAccessLayer.ProveedorDAL.removeProveedor(ProveedorID);
+                return DataAccessLayer.ProveedoresDAL.removeProveedor(ProveedorID);
 
             }
             else
             {
                 return "Error";
             }
+
 
         }
     }

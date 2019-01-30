@@ -26,6 +26,7 @@ namespace SistemasVentas
 
 
 
+
         [Required(ErrorMessage = "El campo Serie es obligatorio")]//Obligatorio
         [StringLength(4, ErrorMessage = "La longitud es de 4 caracteres")]//Longitud de la cadena
         public string Serie { get; set; }

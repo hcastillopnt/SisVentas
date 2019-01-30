@@ -325,6 +325,7 @@
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "E&ditar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 

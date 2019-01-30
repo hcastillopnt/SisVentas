@@ -32,6 +32,8 @@ namespace SisVentas.WinForm
             Cliente cliente = new Cliente();
 
             //Asigna alos atributos del objeto
+
+
             string nombre = txtNombre.Text.Trim().ToString();
             string apellidos = txtApellidos.Text.Trim().ToString();
             string sexo = cbSexo.SelectedItem.ToString();
@@ -52,26 +54,55 @@ namespace SisVentas.WinForm
             cliente.Telefono = tel;
             cliente.Email = email;
 
-            //Puente entre le BussinesLogiclayer y la interfaz grafica
-            string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.insertCliente(cliente);
-
-            //Es para validar si ocurrio algun error
-            if (string.IsNullOrEmpty(message))
+            #region
+            //Se valida si ya hay un Id en el textbox si es asi se actualiza en vez de
+            //insertar
+            if (Convert.ToInt32(txtIdcliente.Text) > 0)
             {
-                MessageBox.Show("El registro ha sido creado correctamente");
+                int Id = Convert.ToInt32(txtIdcliente.Text.Trim());
+                cliente.Id = Id;
 
-                //Precargando la informacion del grid por medio de la BD
-                dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+                //Puente entre le BussinesLogiclayer y la interfaz grafica
+                string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.updateCliente(cliente);
 
+                //Es para validar si ocurrio algun error
+                if (string.IsNullOrEmpty(message))
+                {
+                    MessageBox.Show("El registro ha sido actualizado correctamente");
+
+                    //Precargando la informacion del grid por medio de la BD
+                    dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+
+                }
+                else
+                {
+                    //si hubo algun error, muestra un mensaje con este mismo
+                    MessageBox.Show(message);
+                }
             }
             else
             {
-                //si hubo algun error, muestra un mensaje con este mismo
-                MessageBox.Show(message);
+                #endregion
+                //Puente entre le BussinesLogiclayer y la interfaz grafica
+                string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.insertCliente(cliente);
+
+                //Es para validar si ocurrio algun error
+                if (string.IsNullOrEmpty(message))
+                {
+                    MessageBox.Show("El registro ha sido creado correctamente");
+
+                    //Precargando la informacion del grid por medio de la BD
+                    dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+
+                }
+                else
+                {
+                    //si hubo algun error, muestra un mensaje con este mismo
+                    MessageBox.Show(message);
+                }
+
             }
-
         }
-
 
 
         private void cbSexo_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,6 +168,11 @@ namespace SisVentas.WinForm
                 txtEmail.Text = row.Cells["Email"].Value.ToString();
 
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
