@@ -21,21 +21,16 @@ namespace SisVentas.WinForm
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //Crea la instancia del objeto a trabajar
-            //***Agregue sola la libreria bussniess entity 
             Categoria categoria = new Categoria();
 
             //Declaramos variables y las igualamos a las cajas de texto
-            string codigo = txtIdcategoria.Text.Trim().ToString();
             string nombre = txtNombre.Text.Trim().ToString();
             string descripcion = txtDescripcion.Text.Trim().ToString();
 
             //Asignamos variables
-            //***VERIFICAR COMO  SE ASIGNA ID
-            //categoria.id = codigo;
             categoria.nombre = nombre;
             categoria.descripcion = descripcion;
 
-            //***VERIFICAR BIEN SI ESTA CORRECTO LA LINEA DEL MESSAGE
             //Puente entre el BusinessLogicLayer y la interfaz Grafica
             String message = SisVentas.BusinessLogicLayer.CategoriaBLL.insertCategoria(categoria);
 
@@ -43,18 +38,31 @@ namespace SisVentas.WinForm
             if (string.IsNullOrEmpty(message))
             {
                 //Si no hubo errores, muestra un mensaje de confirmacion
-                MessageBox.Show("El registro ha sido guardado correctamente");
+                MessageBox.Show("El registro ha sido creado correctamente");
 
-
-                //********FALTA PONER LA LINEA DEL PRECARGADO******
                 //Precargado
-                //dgvStudent.DataSource = DesApl.BusinessLogicLayer.StudentBLL.getAllStudent();
-                //limpiar();
+                dataListado.DataSource = SisVentas.BusinessLogicLayer.CategoriaBLL.getAllCategoria();
+               
             }
             else
             {
                 MessageBox.Show(message);
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

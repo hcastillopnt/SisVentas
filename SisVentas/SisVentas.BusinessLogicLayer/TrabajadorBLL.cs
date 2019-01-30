@@ -5,7 +5,7 @@ using System.Text;
 using BusinessEntities;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-
+using System.Data;
 
 namespace SisVentas.BusinessLogicLayer
 {
@@ -46,36 +46,70 @@ namespace SisVentas.BusinessLogicLayer
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
-            ICollection<ValidationResult> results = null;
-            if(!Validate(trabajador,out results))
+            //primera validacion - Verificar los campos vacios
+            if (string.IsNullOrEmpty(trabajador.nombre))
             {
-                message = String.Join("\n ", results.Select(o => o.ErrorMessage));
-
+                message = "El campo nombre esta vacio, favor de completarlo";
             }
             else
             {
-                try
+                if (string.IsNullOrEmpty(trabajador.apellido))
                 {
-                    string isInserted = DataAccessLayer.TrabajadorDAL.insertTrabajador(trabajador);
-                    if (string.IsNullOrEmpty(isInserted))
-                    {
-                        isInserted = "The employee has been registed with success";
-                    }
+                    message = "El apellido Nombre está vacio, favor de completarlo";
                 }
-                catch (Exception ex)
+                else
                 {
-                    message = ex.Message;
+                    if (string.IsNullOrEmpty(trabajador.num_documento))
+                    {
+                        message = "El DNI está vacio, favor de completarlo";
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(trabajador.direccion))
+                        {
+                            message = "La direccion está vacia, favor de completarla";
+                        }
+                        else
+                        {
+                            if (string.IsNullOrEmpty(trabajador.telefono))
+                            {
+                                message = "El teléfono está vacio, favor de completarla";
+                            }
+                            else
+                            {
+                                if (string.IsNullOrEmpty(trabajador.email))
+                                {
+                                    message = "El email está vacio, favor de completarlo";
+                                }
+                                else
+                                {
+                                    
+                                        if (string.IsNullOrEmpty(trabajador.usuario))
+                                        {
+                                            message = "El usuario está vacio, favor de completarlo";
+                                        }
+                                        else
+                                        {
+                                            if (string.IsNullOrEmpty(trabajador.password))
+                                            {
+                                                message = "El password está vacio, favor de completarlo";
+                                            }
+                                            else
+                                            {
+                                            //Este es el puente entre la Capa de Negocios y el acceso a datos
+                                            message = DataAccessLayer.TrabajadorDAL.insertTrabajador(trabajador);                                          }
+                                        }
+                                    
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
             //regresa el mensaje con o sin errores
             return message;
 
-        }
-        private static bool Validate<T>(T obj, out ICollection<ValidationResult> results)
-        {
-            results = new List<ValidationResult>();
-            return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
 
         public static string removeTrabajador(int id)

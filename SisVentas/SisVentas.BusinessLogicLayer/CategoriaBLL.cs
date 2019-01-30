@@ -40,26 +40,26 @@ namespace SisVentas.BusinessLogicLayer
         }
         
                 //metodo para insertar categorias
-        public static string insertCategoria(Categoria entity)
+        public static string insertCategoria(Categoria categoria)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             //primera validacion - Verificar los campos vacios
-            if (string.IsNullOrEmpty(entity.nombre))
+            if (string.IsNullOrEmpty(categoria.nombre))
             {
                 message = "El campo Nombre esta vacio, favor de completarlo";
             }
             else
             {
-                if (string.IsNullOrEmpty(entity.descripcion))
+                if (string.IsNullOrEmpty(categoria.descripcion))
                 {
                     message = "El campo Descripcion esta vacio, favor de completarlo";
                 }
                 else
                 {
                     //Este es el puent entre la capa dde negocios y el acceso a datos
-                    message = DataAccessLayer.CategoriaDAL.insertCategoria(entity);
+                    message = DataAccessLayer.CategoriaDAL.insertCategoria(categoria);
 
                 }
             }

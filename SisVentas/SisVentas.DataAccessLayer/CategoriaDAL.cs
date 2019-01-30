@@ -171,8 +171,7 @@ namespace SisVentas.DataAccessLayer
             return message;
         }
         #endregion
-
-6        #region ELIMINAR
+        
 
         public static string removeCategoria(int Id)
         {
@@ -248,7 +247,6 @@ namespace SisVentas.DataAccessLayer
             //Retorna el mensaje de error, en caso de ocurrir alguno de lo contrario regress vcio
             return message;
         }
-        #endregion
 
         #region BUSCAR
 
