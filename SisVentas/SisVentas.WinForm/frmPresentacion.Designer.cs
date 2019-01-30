@@ -96,6 +96,7 @@
             // 
             this.txtIdpresentacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtIdpresentacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdpresentacion.Enabled = false;
             this.txtIdpresentacion.Location = new System.Drawing.Point(88, 32);
             this.txtIdpresentacion.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdpresentacion.Name = "txtIdpresentacion";
@@ -223,6 +224,7 @@
             this.chkEliminar.TabIndex = 5;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
             // 
             // txtBuscar
             // 
@@ -265,6 +267,7 @@
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(504, 165);
             this.dataListado.TabIndex = 7;
+            this.dataListado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellClick);
             // 
             // tabPage1
             // 

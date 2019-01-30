@@ -63,6 +63,8 @@ namespace SisVentas.WinForm
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            txtNombre.Enabled = true;
+            txtDescripcion.Enabled = true;
             //Crea la instancia del objeto a trabajar
             Presentacion presentacion = new Presentacion();
 
@@ -114,12 +116,11 @@ namespace SisVentas.WinForm
             Presentacion presentacion = new Presentacion();
 
             //Declaramos variables y las igualamos a las cajas de texto
-            string nombre = txtNombre.Text.Trim().ToString();
-            string descripcion = txtDescripcion.Text.Trim().ToString();
+            string nombre = txtBuscar.Text.Trim().ToString();
+            ;
 
             //Asignamos variables
             presentacion.nombre = nombre;
-            presentacion.descripcion = descripcion;
 
             //Puente entre el BusinessLogicLayer y la interfaz Grafica
             String message = SisVentas.BusinessLogicLayer.PresentacionBLL.removePresentacion(nombre);
@@ -137,6 +138,50 @@ namespace SisVentas.WinForm
             else
             {
                 MessageBox.Show(message);
+            }
+        }
+
+        private void chkEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            Presentacion presentacion = new Presentacion();
+
+            //Declaramos variables y las igualamos a las cajas de texto
+            string nombre = txtBuscar.Text.Trim().ToString();
+
+            //Asignamos variables
+            presentacion.nombre = nombre;
+
+            //Puente entre el BusinessLogicLayer y la interfaz Grafica
+            String message = SisVentas.BusinessLogicLayer.PresentacionBLL.removePresentacion(nombre);
+
+            //Es para validar si ocurrio algun error
+            if (string.IsNullOrEmpty(message))
+            {
+                //Si no hubo errores, muestra un mensaje de confirmacion
+                MessageBox.Show("El registro ha sido eliminado correctamente");
+
+                //Precargado
+                dataListado.DataSource = SisVentas.BusinessLogicLayer.PresentacionBLL.getAllPresentacion();
+
+            }
+            else
+            {
+                MessageBox.Show(message);
+            }
+        }
+
+        private void dataListado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Validar si seleccione la fila
+            if (e.RowIndex >= 0)
+            {
+                //Obtienes la fila seleccionada
+                DataGridViewRow row = this.dataListado.Rows[e.RowIndex];
+
+                //Le coloco los datos de los texbox en base a la fila seleccionada
+                txtIdpresentacion.Text = row.Cells["Id"].Value.ToString();
+                txtNombre.Text = row.Cells["Nombre"].Value.ToString();
+                txtDescripcion.Text = row.Cells["Descripcion"].Value.ToString();
             }
         }
     }

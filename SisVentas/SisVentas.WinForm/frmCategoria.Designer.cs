@@ -285,11 +285,13 @@
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Location = new System.Drawing.Point(88, 110);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
@@ -302,6 +304,7 @@
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(88, 71);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
@@ -312,6 +315,7 @@
             // 
             this.txtIdcategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtIdcategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdcategoria.Enabled = false;
             this.txtIdcategoria.Location = new System.Drawing.Point(88, 32);
             this.txtIdcategoria.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdcategoria.Name = "txtIdcategoria";
@@ -379,6 +383,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCategoria";
             this.Text = ".:. Mantenimiento de Categorías .:.";
+            this.Load += new System.EventHandler(this.frmCategoria_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

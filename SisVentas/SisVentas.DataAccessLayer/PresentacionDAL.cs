@@ -177,7 +177,7 @@ namespace SisVentas.DataAccessLayer
 
         #region ELIMINAR => PRESENTACION
 
-        public static string removePresentacion(string name)
+        public static string removePresentacion(string nombre)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -198,9 +198,9 @@ namespace SisVentas.DataAccessLayer
                     {
                         #region Alternativa #1 - Eliminando con Entity Framework
                         //Consultar para obtener el objeto a eliminar
-                        //var objStudent = dbCtx.Students.Find(Id);
+                        //var objPresentacion = dbCtx.Presentacions.Find(name);
                         //Opcion1
-                        var objPresentacion = dbCtx.Presentacions.Where(x => x.nombre == name).SingleOrDefault();
+                        var objPresentacion = dbCtx.Presentacions.Where(x => x.nombre == nombre).SingleOrDefault();
 
                         //Consulta para eliminar el objeto
                         dbCtx.Presentacions.Remove(objPresentacion);

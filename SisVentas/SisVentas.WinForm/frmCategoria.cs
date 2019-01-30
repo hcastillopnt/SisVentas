@@ -64,5 +64,16 @@ namespace SisVentas.WinForm
         {
 
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            txtNombre.Enabled = true;
+            txtDescripcion.Enabled = true;
+        }
+
+        private void frmCategoria_Load(object sender, EventArgs e)
+        {
+            dataListado.DataSource = SisVentas.BusinessLogicLayer.CategoriaBLL.getAllCategoria();
+        }
     }
 }
