@@ -19,12 +19,40 @@ namespace SisVentas.WinForm
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-         
+            if ((TxtUsuario.Text != "") && (TxtPassword.Text != ""))
+            {
+                if ((TxtUsuario.Text.Equals("guille")) && (TxtPassword.Text.Equals("guille123")))
+                {
+                    frmPrincipal principal = new frmPrincipal();
+                    principal.Show();
+                    this.Hide(); //ocultar formulario con el que se esta trabajando ej."Login" 
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o Contraseña son incorrectas",
+                                    "Login",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+
+                    TxtUsuario.Clear();
+                    TxtPassword.Clear();
+                    TxtUsuario.Focus();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Esbribe el usuario y contraseña",
+                                 "Login",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Exclamation);
+                TxtUsuario.Focus();
+            }
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-           
+            Application.Exit();
         }
     }
 }
