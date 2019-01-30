@@ -21,17 +21,7 @@ namespace BussinesLogicLayer
             return clientes;
 
         }
-        public static List<Cliente> getClienteByApellido(string Apellido)
-        {
-            //Lista para almacenar el objeto a buscar
-            List<Cliente> clientes = new List<Cliente>();
-
-            //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            clientes = DataAccessLayer.ClienteDAL.getClientebyApellidos(Apellido);
-
-            return clientes;
-
-        }
+        
 
         public static List<Cliente> getAllCliente()
         {
