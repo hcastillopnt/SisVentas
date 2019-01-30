@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProveedoresDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="IngresoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

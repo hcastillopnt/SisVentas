@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemasVentas;
 
 namespace ProveedorDAL
 {
@@ -21,19 +22,19 @@ namespace ProveedorDAL
             return Proveedors;
         }
 
-        //Metodo para obtener todos los Proveedores registrados en pocas palabras select * from
+        //Metodo para obtener todos los proveedores registrados en pocas palabras select * from
         public static List<Proveedor> getAllProveedors()
         {
             List<Proveedor> Proveedors = new List<Proveedor>();
 
-            //SELECT * FROM Proveedors
+            //SELECT * FROM ProveedorS
             Proveedors = dbCtx.Proveedors.ToList();
 
             return Proveedors;
         }
 
 
-        //metodo para obtener los Proveedores por medio del apellido
+        //metodo para obtener los proveedores por medio del apellido
         public static List<Proveedor> getProveedorsByLastName(string lastname)
         {
             List<Proveedor> Proveedors = new List<Proveedor>();

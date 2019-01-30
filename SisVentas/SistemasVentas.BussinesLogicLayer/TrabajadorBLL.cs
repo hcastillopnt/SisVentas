@@ -13,34 +13,28 @@ namespace SistemasVentas.BussinesLogicLayer
         public static List<Trabajador> getTrabajadorByFilter(string Filter, string bandera)
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajadors = new List<Trabajador>();
+            List<Trabajador> Trabajadors = new List<Trabajador>();
         
             switch (bandera)
             {
-                case "Nombre":
-                    break;
-                case "Apellido":
-                    trabajadors =SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByLastName(Filter);
-                    break;
-                case "TrbajadorId":
+                case "TrabajadorId":
                     int TrabajadorID = Convert.ToInt32(Filter);
-                    trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByID(TrabajadorID);
+                    Trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByID(TrabajadorID);
                     break;
-
             }
-            return trabajadors;
+            return Trabajadors;
 
         }
 
         public static List<Trabajador> getTrabajadorByID(int TrabajadorID)
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajadors = new List<Trabajador>();
+            List<Trabajador> Trabajadors = new List<Trabajador>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByID(TrabajadorID);
+            Trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByID(TrabajadorID);
 
-            return trabajadors;
+            return Trabajadors;
 
 
         }
@@ -48,25 +42,14 @@ namespace SistemasVentas.BussinesLogicLayer
         public static List<Trabajador> getAllTrabajador()
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajadors = new List<Trabajador>();
+            List<Trabajador> Trabajadors = new List<Trabajador>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getAllTrabajador();
+            Trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getAllTrabajador();
 
-            return trabajadors;
+            return Trabajadors;
         }
-
-
-        //metodo para obtener los estudiantes por medio del apellido
-        public static List<Trabajador> getTrabajadorByLastName(string apellidos)
-        {
-            List<Trabajador> trabajadors= new List<Trabajador>();
-            //SELECT * FROM STUDENT WHERE  LastName= '____'
-            trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByLastName(apellidos);
-            return trabajadors;
-        }
-
-        
+   
        public static string insertTrabajador(Trabajador objTrabajador)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
