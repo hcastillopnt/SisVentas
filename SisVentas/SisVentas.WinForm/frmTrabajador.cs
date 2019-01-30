@@ -24,7 +24,6 @@ namespace SisVentas.WinForm
             Trabajador trabajador = new Trabajador();
 
             //Declaramos variables y las igualamos a las cajas de texto
-            string codigo = txtIdtrabajador.Text.Trim().ToString();
             string nombre = txtNombre.Text.Trim().ToString();
             string apellido = txtApellidos.Text.Trim().ToString();
             string sexo = cbSexo.SelectedItem.ToString();
@@ -73,7 +72,6 @@ namespace SisVentas.WinForm
             Trabajador trabajador = new Trabajador();
 
             //Declaramos variables y las igualamos a las cajas de texto
-            string codigo = txtIdtrabajador.Text.Trim().ToString();
             string nombre = txtNombre.Text.Trim().ToString();
             string apellido = txtApellidos.Text.Trim().ToString();
             string sexo = cbSexo.Text;

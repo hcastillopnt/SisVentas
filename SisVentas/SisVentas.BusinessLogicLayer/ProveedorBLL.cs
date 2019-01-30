@@ -16,10 +16,10 @@ namespace SisVentas.BusinessLogicLayer
 
             switch (bandera)
             {
-                case "documento":
+                case "Documento":
                     proveedors = DataAccessLayer.ProveedorDAL.getProveedorByDocument(Filter);
                     break;
-                case "razon social":
+                case "RazonSocial":
                     proveedors = DataAccessLayer.ProveedorDAL.getProveedorByRazonSocial(Filter);
                     break;
             }
@@ -101,13 +101,14 @@ namespace SisVentas.BusinessLogicLayer
 
         }
 
-        public static string removeProveedor(int id)
+        public static string removeProveedor(string razon)
         {
             string message = string.Empty;
 
-            if (id > 0)
+            if (!(razon.Equals("")))
             {
-                return DataAccessLayer.ProveedorDAL.removeProveedor(id);
+                return DataAccessLayer.ProveedorDAL.removeProveedor(razon);
+
             }
             else
             {

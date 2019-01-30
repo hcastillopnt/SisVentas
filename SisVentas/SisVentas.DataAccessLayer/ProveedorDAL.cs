@@ -179,7 +179,7 @@ namespace SisVentas.DataAccessLayer
 
         #region ELIMINAR
 
-        public static string removeProveedor(int Id)
+        public static string removeProveedor(string razon)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -201,7 +201,7 @@ namespace SisVentas.DataAccessLayer
                         #region Alternativa #1 - Eliminando con Entity Framework
                         //Consultar para obtener el objeto a eliminar
                         //var objStudent = dbCtx.Students.Find(Id);
-                        var objProveedor = dbCtx.Proveedors.Where(x => x.Id == Id).SingleOrDefault();//Puede ser esta también para que elimine
+                        var objProveedor = dbCtx.Proveedors.Where(x => x.razon_Social == razon).SingleOrDefault();//Puede ser esta también para que elimine
 
                         //Consulta para eliminar el objeto
                         dbCtx.Proveedors.Remove(objProveedor);
