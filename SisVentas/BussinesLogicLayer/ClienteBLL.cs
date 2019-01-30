@@ -1,11 +1,8 @@
 ﻿using SistemasVentas;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Web.Script.Serialization;
 namespace BussinesLogicLayer
 {
     public class ClienteBLL
@@ -21,17 +18,7 @@ namespace BussinesLogicLayer
             return clientes;
 
         }
-        public static List<Cliente> getClienteByApellido(string Apellido)
-        {
-            //Lista para almacenar el objeto a buscar
-            List<Cliente> clientes = new List<Cliente>();
-
-            //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            clientes = DataAccessLayer.ClienteDAL.getClientebyApellidos(Apellido);
-
-            return clientes;
-
-        }
+        
 
         public static List<Cliente> getAllCliente()
         {

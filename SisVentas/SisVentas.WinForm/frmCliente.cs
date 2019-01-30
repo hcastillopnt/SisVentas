@@ -57,7 +57,7 @@ namespace SisVentas.WinForm
             #region
             //Se valida si ya hay un Id en el textbox si es asi se actualiza en vez de
             //insertar
-            if (Convert.ToInt32(txtIdcliente.Text) > 0)
+            if (txtIdcliente.Text != "")
             {
                 int Id = Convert.ToInt32(txtIdcliente.Text.Trim());
                 cliente.Id = Id;
@@ -255,6 +255,36 @@ namespace SisVentas.WinForm
         {
             bloquear();
             limpiar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //prueba
+            if (txtIdcliente.Text != "")
+            {
+                int clienteid = Convert.ToInt32(txtIdcliente.Text);
+                //puente
+                string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.removeCliente(clienteid);
+
+                //validacion si hay error
+                if (string.IsNullOrEmpty(message))
+                {
+                    MessageBox.Show("Cliente eliminado correctamente");
+
+                    //cargar en el dgv
+                    dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+                    limpiar();
+
+                }
+                else
+                {
+                    MessageBox.Show(message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione con doble click un cliente a eliminar","Atención");
+            }            
         }
     }
 }
