@@ -328,6 +328,3 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-/SisVentas/SistemasVentas/Migrations/201901301536215_initial.resx
-/SisVentas/SistemasVentas/Migrations/201901301536215_initial.Designer.cs
-/SisVentas/SistemasVentas/Migrations/201901301536215_initial.cs
