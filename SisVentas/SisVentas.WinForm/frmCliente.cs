@@ -113,6 +113,7 @@ namespace SisVentas.WinForm
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             bloquear();
+            bloquear();
             //declara en instanciar la lista para almacenar el estudiante a buscar
             List<Cliente> clientes = new List<Cliente>();
 
