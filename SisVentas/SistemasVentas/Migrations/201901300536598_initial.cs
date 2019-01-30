@@ -23,30 +23,26 @@ namespace SistemasVentas.Migrations
                         Email = c.String(nullable: false, maxLength: 50, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.Id);
-
+            
             CreateTable(
                 "dbo.Venta",
                 c => new
-                {
-                    Id = c.Int(nullable: false, identity: true),
-                    Fecha = c.DateTime(nullable: false, precision: 0),
-                    TipoComporbante = c.String(nullable: false, maxLength: 20, storeType: "nvarchar"),
-                    Serie = c.String(nullable: false, maxLength: 4, storeType: "nvarchar"),
-                    Correlativo = c.String(nullable: false, maxLength: 7, storeType: "nvarchar"),
-                    Igv = c.Double(nullable: false),
-                    TrabajadorId = c.Int(nullable: false),
-                    ClienteId = c.Int(nullable: false),
-                })
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Fecha = c.DateTime(nullable: false, precision: 0),
+                        TipoComporbante = c.String(nullable: false, maxLength: 20, storeType: "nvarchar"),
+                        Serie = c.String(nullable: false, maxLength: 4, storeType: "nvarchar"),
+                        Correlativo = c.String(nullable: false, maxLength: 7, storeType: "nvarchar"),
+                        Igv = c.Double(nullable: false),
+                        TrabajadorId = c.Int(nullable: false),
+                        ClienteId = c.Int(nullable: false),
+                    })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cliente", t => t.ClienteId, cascadeDelete: true)
-                .ForeignKey("dbo.Trabajador", t => t.TrabajadorId, cascadeDelete: true);
-               // .Index(t => t.TrabajadorId)
-               // .Index(t => t.ClienteId);
-            Sql("CREATE index Ix_TrabajadorId on Venta (TrabajadorId DESC)");
-            Sql("CREATE index Ix_ClienteId on Venta (ClienteId DESC)");
-
-
-
+                .ForeignKey("dbo.Trabajador", t => t.TrabajadorId, cascadeDelete: true)
+                .Index(t => t.TrabajadorId)
+                .Index(t => t.ClienteId);
+            
             CreateTable(
                 "dbo.Trabajador",
                 c => new
@@ -65,28 +61,26 @@ namespace SistemasVentas.Migrations
                         Password = c.String(nullable: false, maxLength: 20, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.Id);
-
+            
             CreateTable(
                 "dbo.Ingreso",
                 c => new
-                {
-                    Id = c.Int(nullable: false, identity: true),
-                    Fecha = c.DateTime(nullable: false, precision: 0),
-                    TipoComporbante = c.String(nullable: false, maxLength: 20, storeType: "nvarchar"),
-                    Serie = c.String(nullable: false, maxLength: 4, storeType: "nvarchar"),
-                    Correlativo = c.String(nullable: false, maxLength: 7, storeType: "nvarchar"),
-                    Igv = c.Double(nullable: false),
-                    TrabajadorId = c.Int(nullable: false),
-                    ProveedorId = c.Int(nullable: false),
-                })
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Fecha = c.DateTime(nullable: false, precision: 0),
+                        TipoComporbante = c.String(nullable: false, maxLength: 20, storeType: "nvarchar"),
+                        Serie = c.String(nullable: false, maxLength: 4, storeType: "nvarchar"),
+                        Correlativo = c.String(nullable: false, maxLength: 7, storeType: "nvarchar"),
+                        Igv = c.Double(nullable: false),
+                        TrabajadorId = c.Int(nullable: false),
+                        ProveedorId = c.Int(nullable: false),
+                    })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Proveedor", t => t.ProveedorId, cascadeDelete: true)
-                .ForeignKey("dbo.Trabajador", t => t.TrabajadorId, cascadeDelete: true);
-               // .Index(t => t.TrabajadorId)
-               //.Index(t => t.ProveedorId);
-            Sql("CREATE index Ix_ProveedorId on Ingreso (ProveedorId DESC)");
-            Sql("CREATE index Ix_TrabajadorId on Ingreso (TrabajadorId DESC)");
-
+                .ForeignKey("dbo.Trabajador", t => t.TrabajadorId, cascadeDelete: true)
+                .Index(t => t.TrabajadorId)
+                .Index(t => t.ProveedorId);
+            
             CreateTable(
                 "dbo.Proveedor",
                 c => new
