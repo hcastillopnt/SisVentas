@@ -194,7 +194,7 @@ namespace SisVentas.DataAccessLayer
             return message;
         }
 
-        public static string deleteStudent(int trabajadorID)
+        public static string deleteTrabajador(int trabajadorID)
         {
             //variable para almacenar mensaje en caso de error
             string message = string.Empty;
