@@ -19,10 +19,9 @@ namespace SisVentas.BusinessLogicLayer
                     proveedores = DataAccessLayer.ProveedorDAL.getProveedorByNumDocumento(Filter);
                     break;
 
-                case "ProveedorID":
-                    int ProveedorID = Convert.ToInt32(Filter);
-                    proveedores = DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
-                    break;
+                case "RazonSocial":
+                    proveedores = DataAccessLayer.ProveedorDAL.getProveedorByRazonSocial(Filter);
+                    break;       
             }
             return proveedores;
         }
@@ -49,16 +48,27 @@ namespace SisVentas.BusinessLogicLayer
         }
 
         //Método para traer un registro especifico
-        public static List<Proveedor> getStudentByNumDocumento(string NumDocumento)
+        public static List<Proveedor> getStudentByNumDocumento(string numDocumento)
         {
             List<Proveedor> proveedores = new List<Proveedor>();
-
-            //SELECT * FROM Students WHERE LastName = '_____'
-            proveedores = DataAccessLayer.ProveedorDAL.getProveedorByNumDocumento(NumDocumento);
+            
+            proveedores = DataAccessLayer.ProveedorDAL.getProveedorByNumDocumento(numDocumento);
 
             return proveedores;
 
         }
+
+        public static List<Proveedor> getProveedorByRazonSocial(string razonSocial)
+        {
+            List<Proveedor> proveedores = new List<Proveedor>();
+            
+            proveedores = DataAccessLayer.ProveedorDAL.getProveedorByRazonSocial(razonSocial);
+
+            return proveedores;
+
+        }
+
+
 
         //Metodo para insertar en la tabla
         public static string insertProveedor(Proveedor entity)
