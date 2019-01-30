@@ -18,7 +18,7 @@ namespace SisVentas.BusinessLogicLayer
 
             switch (bandera)
             {
-                case "documento":
+                case "Documento":
                     trabajador = DataAccessLayer.TrabajadorDAL.getTrabajadorByDocument(Filter);
                     break;
                 case "apellido":
@@ -112,13 +112,14 @@ namespace SisVentas.BusinessLogicLayer
 
         }
 
-        public static string removeTrabajador(int id)
+        public static string removeTrabajador(string apellido)
         {
             string message = string.Empty;
 
-            if (id > 0)
+            if (!(apellido.Equals("")))
             {
-                return DataAccessLayer.TrabajadorDAL.removeTrabajador(id);
+                return DataAccessLayer.TrabajadorDAL.removeTrabajador(apellido);
+
             }
             else
             {
@@ -166,12 +167,7 @@ namespace SisVentas.BusinessLogicLayer
                                 }
                                 else
                                 {
-                                    if (string.IsNullOrEmpty(trabajador.acceso))
-                                    {
-                                        message = "No se ha escogido";
-                                    }
-                                    else
-                                    {
+                                    
                                         if (string.IsNullOrEmpty(trabajador.usuario))
                                         {
                                             message = "El usuario está vacio, favor de completarlo";
@@ -188,7 +184,7 @@ namespace SisVentas.BusinessLogicLayer
                                                 message = DataAccessLayer.TrabajadorDAL.updateTrabajador(trabajador);
                                             }
                                         }
-                                    }
+                                    
                                 }
                             }
                         }

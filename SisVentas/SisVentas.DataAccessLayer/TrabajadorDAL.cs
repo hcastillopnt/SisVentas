@@ -182,7 +182,7 @@ namespace SisVentas.DataAccessLayer
 
         #region ELIMINAR
 
-        public static string removeTrabajador(int Id)
+        public static string removeTrabajador(string apellido)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -204,7 +204,7 @@ namespace SisVentas.DataAccessLayer
                         #region Alternativa #1 - Eliminando con Entity Framework
                         //Consultar para obtener el objeto a eliminar
                         //var objStudent = dbCtx.Students.Find(Id);
-                        var objTrabajador = dbCtx.Trabajadors.Where(x => x.Id == Id).SingleOrDefault();//Puede ser esta también para que elimine
+                        var objTrabajador = dbCtx.Trabajadors.Where(x => x.apellido == apellido).SingleOrDefault();//Puede ser esta también para que elimine
 
                         //Consulta para eliminar el objeto
                         dbCtx.Trabajadors.Remove(objTrabajador);
