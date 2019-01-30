@@ -1,58 +1,56 @@
-﻿using System;
+﻿using BusinessEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessEntities;
-using System.Data;
-using System.ComponentModel.DataAnnotations;
 
 namespace SisVentas.BusinessLogicLayer
 {
-    public class CategoriaBLL
+    public class PresentacionBLL
     {
-        public static List<Categoria> getCategoriaByName(string name)
+        public static List<Presentacion> getPresentacionByName(string name)
         {
             //Lista para almacenar el objeto a buscar
-            List<Categoria> categorias = new List<Categoria>();
-            categorias = DataAccessLayer.CategoriaDAL.getCategoriaByName(name);
-                    
-            return categorias;
+            List<Presentacion> presentacions = new List<Presentacion>();
+            presentacions = DataAccessLayer.PresentacionDAL.getPresentacionByName(name);
+
+            return presentacions;
 
         }
 
-        public static List<Categoria> getAllCategoria()
+        public static List<Presentacion> getAllPresentacion()
         {
             //Lista para almacenar el objeto a buscar
-            List<Categoria> categorias = new List<Categoria>();
+            List<Presentacion> presentacions = new List<Presentacion>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            categorias = DataAccessLayer.CategoriaDAL.getAllCategoria();
+            presentacions = DataAccessLayer.PresentacionDAL.getAllPresentacion();
 
-            return categorias;
+            return presentacions;
         }
-        
-                //metodo para insertar categorias
-        public static string insertCategoria(Categoria categoria)
+
+        //metodo para insertar categorias
+        public static string insertPresentacion(Presentacion presentacion)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             //primera validacion - Verificar los campos vacios
-            if (string.IsNullOrEmpty(categoria.nombre))
+            if (string.IsNullOrEmpty(presentacion.nombre))
             {
                 message = "El campo Nombre esta vacio, favor de completarlo";
             }
             else
             {
-                if (string.IsNullOrEmpty(categoria.descripcion))
+                if (string.IsNullOrEmpty(presentacion.descripcion))
                 {
                     message = "El campo Descripcion esta vacio, favor de completarlo";
                 }
                 else
                 {
                     //Este es el puent entre la capa dde negocios y el acceso a datos
-                    message = DataAccessLayer.CategoriaDAL.insertCategoria(categoria);
+                    message = DataAccessLayer.PresentacionDAL.insertPresentacion(presentacion);
 
                 }
             }
@@ -61,13 +59,14 @@ namespace SisVentas.BusinessLogicLayer
             return message;
 
         }
-        public static string removeCategoria(int id)
+
+        public static string removePresentacion(int id)
         {
             string message = string.Empty;
 
             if (id > 0)
             {
-                return DataAccessLayer.CategoriaDAL.removeCategoria(id);
+                return DataAccessLayer.PresentacionDAL.removePresentacion(id);
             }
             else
             {
@@ -75,24 +74,24 @@ namespace SisVentas.BusinessLogicLayer
             }
         }
 
-        public static string updateCategoria(Categoria categoria)
+        public static string updatePresentacion(Presentacion presentacion)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
-            if (string.IsNullOrEmpty(categoria.nombre))
+            if (string.IsNullOrEmpty(presentacion.nombre))
             {
                 message = "El campo nombre esta vacio, favor de completarlo";
             }
             else
             {
-                if (string.IsNullOrEmpty(categoria.descripcion))
+                if (string.IsNullOrEmpty(presentacion.descripcion))
                 {
                     message = "El descripcion Nombre está vacio, favor de completarlo";
                 }
                 else
                 {
                     //Este es el puente entre la Capa de Negocios y el acceso a datos
-                    message = DataAccessLayer.CategoriaDAL.updateCategoria(categoria);
+                    message = DataAccessLayer.PresentacionDAL.updatePresentacion(presentacion);
                 }
             }
             return message;

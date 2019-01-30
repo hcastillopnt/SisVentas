@@ -7,6 +7,8 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace SisVentas.DataAccessLayer
 {
@@ -171,8 +173,7 @@ namespace SisVentas.DataAccessLayer
             return message;
         }
         #endregion
-
-        #region ELIMINAR
+        
 
         public static string removeCategoria(int Id)
         {
@@ -248,7 +249,6 @@ namespace SisVentas.DataAccessLayer
             //Retorna el mensaje de error, en caso de ocurrir alguno de lo contrario regress vcio
             return message;
         }
-        #endregion
 
         #region BUSCAR
 

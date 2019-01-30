@@ -7,10 +7,12 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace SisVentas.DataAccessLayer
 {
-    class PresentacionDAL
+    public class PresentacionDAL
     {
         private static SisVentasDbContext dbCtx = new SisVentasDbContext();
 
@@ -269,7 +271,7 @@ namespace SisVentas.DataAccessLayer
         #endregion
 
         #region NOMBRE
-        public static List<Presentacion> getCategoriaByName(string name)
+        public static List<Presentacion> getPresentacionByName(string name)
         {
 
             List<Presentacion> presentacions = new List<Presentacion>();
