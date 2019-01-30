@@ -13,12 +13,13 @@ namespace SistemasVentas.DataAccessLayer
     public  class VentasDAL
     {
         public static SistemaDBContext dbCtx = new SistemaDBContext();
-        public static List<Venta> getVentaByID(int VentaID)
+        public static List<Venta> getVentaByID( DateTimefi , datetim)
         {
             List<Venta> ventas
                 = new List<Venta>();
+          
             //SELECT * FROM venta WHERE  Id= '____'
-            ventas = dbCtx.Ventas.Where(x => x.Id == VentaID).ToList();
+            ventas = dbCtx.Ventas.Where(fecha_material => Convert. ToBoolean( fecha_material.Fecha)  &   fecha_material <= Convert.ToInt32( fecha_material.Fecha ));
 
             return ventas;
         }

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using SistemasVentas.BussinesLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SistemasVentas.BussinesLogicLayer
 {
-    class VentasBILL
+     public class VentasBILL
     {
         public static List<Venta> getVentasByFilter(string Filter, string bandera)
         {
