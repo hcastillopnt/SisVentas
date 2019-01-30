@@ -8,79 +8,62 @@ using SistemasVentas;
 
 namespace SistemasVentas.BussinesLogicLayer
 {
-   public class TrabajadorBLL
+   public class ProveedorBLL
     {
-        public static List<Trabajador> getTrabajadorByFilter(string Filter, string bandera)
+        public static List<Proveedor> getProveedorByFilter(string Filter, string bandera)
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajadors = new List<Trabajador>();
+            List<Proveedor> Proveedors = new List<Proveedor>();
         
             switch (bandera)
             {
-                case "Nombre":
+                case "ProveedorId":
+                    int ProveedorID = Convert.ToInt32(Filter);
+                    Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
                     break;
-                case "Apellido":
-                    trabajadors =SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByLastName(Filter);
-                    break;
-                case "TrbajadorId":
-                    int TrabajadorID = Convert.ToInt32(Filter);
-                    trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByID(TrabajadorID);
-                    break;
-
             }
-            return trabajadors;
+            return Proveedors;
 
         }
 
-        public static List<Trabajador> getTrabajadorByID(int TrabajadorID)
+        public static List<Proveedor> getProveedorByID(int ProveedorID)
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajadors = new List<Trabajador>();
+            List<Proveedor> Proveedors = new List<Proveedor>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByID(TrabajadorID);
+            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
 
-            return trabajadors;
+            return Proveedors;
 
 
         }
 
-        public static List<Trabajador> getAllTrabajador()
+        public static List<Proveedor> getAllProveedor()
         {
             //Lista para almacenar el objeto a buscar
-            List<Trabajador> trabajadors = new List<Trabajador>();
+            List<Proveedor> Proveedors = new List<Proveedor>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getAllTrabajador();
+            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getAllProveedor();
 
-            return trabajadors;
+            return Proveedors;
         }
-
-
-        //metodo para obtener los estudiantes por medio del apellido
-        public static List<Trabajador> getTrabajadorByLastName(string apellidos)
-        {
-            List<Trabajador> trabajadors= new List<Trabajador>();
-            //SELECT * FROM STUDENT WHERE  LastName= '____'
-            trabajadors = SistemasVentas.DataAccessLayer.TrabajadorDAL.getTrabajadorByLastName(apellidos);
-            return trabajadors;
-        }
-
-        
-       public static string insertTrabajador(Trabajador objTrabajador)
+   
+       public static string insertProveedor(Proveedor objProveedor)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if(!validate(objTrabajador,out result))
+            if(!validate(objProveedor,out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.TrabajadorDAL.insertTrabajador(objTrabajador);
+                message = SistemasVentas.DataAccessLayer.ProveedorDAL.insertProveedor(objProveedor);
             }
 
 
@@ -95,35 +78,35 @@ namespace SistemasVentas.BussinesLogicLayer
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
 
-        public static string updateTrabajador(Trabajador objTrabajador)
+        public static string updateProveedor(Proveedor objProveedor)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
             ICollection<ValidationResult> result = null;
 
-            if (!validate(objTrabajador, out result))
+            if (!validate(objProveedor, out result))
             {
                 message = string.Join("\n", result.Select(o => o.ErrorMessage));
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.TrabajadorDAL.updateTrabajador(objTrabajador);
+                message = SistemasVentas.DataAccessLayer.ProveedorDAL.updateProveedor(objProveedor);
             }
        
             //regresa el mensaje con o sin errores
             return message;
         }
 
-        public static string removeTrabajador(int TrabajadorID)
+        public static string removeProveedor(int ProveedorID)
         {
             //Variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
 
-            if (TrabajadorID > 0)
+            if (ProveedorID > 0)
             {
 
-                return SistemasVentas.DataAccessLayer.TrabajadorDAL.removeTrabajador(TrabajadorID);
+                return SistemasVentas.DataAccessLayer.ProveedorDAL.removeProveedor(ProveedorID);
 
             }
             else

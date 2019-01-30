@@ -26,7 +26,7 @@ namespace ProveedorDAL
         {
             List<Proveedor> Proveedors = new List<Proveedor>();
 
-            //SELECT * FROM ProveedorS
+            //SELECT * FROM Proveedors
             Proveedors = dbCtx.Proveedors.ToList();
 
             return Proveedors;
