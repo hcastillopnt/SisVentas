@@ -11,7 +11,7 @@ namespace BussinesLogicLayer
     public class VentaBLL
     {
        
-
+    
         public static List<Venta> getVentaByFecha(DateTime Ventafecha)
         {
             //Lista para almacenar el objeto a buscar

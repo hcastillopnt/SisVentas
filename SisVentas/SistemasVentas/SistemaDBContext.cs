@@ -16,6 +16,7 @@ namespace SistemasVentas
 
         }
 
+
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<Trabajador> Trabajadors{ get; set; }
         public DbSet<Proveedor> Proveedors{ get; set; }

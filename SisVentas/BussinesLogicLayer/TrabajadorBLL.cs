@@ -95,7 +95,6 @@ namespace BussinesLogicLayer
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
 
-
             
 
         public static string updateTrabajador(Trabajador objTrabajador)

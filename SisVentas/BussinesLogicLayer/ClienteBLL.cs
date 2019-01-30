@@ -33,8 +33,6 @@ namespace BussinesLogicLayer
 
         }
 
-
-
         public static List<Cliente> getAllCliente()
         {
             //Lista para almacenar el objeto a buscar

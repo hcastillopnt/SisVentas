@@ -25,6 +25,7 @@ namespace SistemasVentas
 
 
 
+
         [Required(ErrorMessage = "El campo Sexo es obligatorio")]//Obligatorio
         [StringLength(1, ErrorMessage = "La longitud es de 1 caracter")]//Longitud de la cadena
         public string Sexo { get; set; }

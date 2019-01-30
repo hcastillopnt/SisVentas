@@ -24,7 +24,7 @@ namespace DataAccessLayer
 
             return proveedors;
         }
-       
+      
         
         //Metodo para obtener todos los estudiantes registrados en pocas palabras select * from
         public static List<Proveedor> getAllProveedor()

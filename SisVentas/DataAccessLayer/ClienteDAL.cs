@@ -15,7 +15,7 @@ namespace DataAccessLayer
         //se crea una instancia de la clase DbContext para acceder a la DB
         public static SistemaDBContext dbCtx = new SistemaDBContext();
 
-
+    
         public static List<Cliente> getClienteByID(int ClienteID)
         {
             List<Cliente> clientes = new List<Cliente>();

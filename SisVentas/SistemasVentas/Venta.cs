@@ -20,6 +20,7 @@ namespace SistemasVentas
 
 
 
+
         [Required(ErrorMessage = "El campo TipoComprobante es obligatorio")]//Obligatorio
         [StringLength(20, ErrorMessage = "La longitud es de 20 caracteres")]//Longitud de la cadena
         public string TipoComporbante { get; set; }
