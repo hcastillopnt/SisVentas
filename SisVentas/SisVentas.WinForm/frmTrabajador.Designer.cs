@@ -125,6 +125,7 @@
             this.chkEliminar.TabIndex = 5;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
             // 
             // cbBuscar
             // 

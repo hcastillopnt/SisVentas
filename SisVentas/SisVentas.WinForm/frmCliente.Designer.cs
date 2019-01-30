@@ -127,6 +127,7 @@
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(590, 215);
             this.dataListado.TabIndex = 7;
+            this.dataListado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellClick);
             // 
             // Eliminar
             // 
@@ -323,6 +324,7 @@
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "E&ditar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -350,6 +352,7 @@
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // txtDireccion
             // 
@@ -423,6 +426,7 @@
             this.chkEliminar.TabIndex = 5;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
             // 
             // txtBuscar
             // 
@@ -475,6 +479,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
@@ -488,6 +493,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tabControl1
             // 
@@ -543,6 +549,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCliente";
             this.Text = ".:. Mantenimiento de Clientes .:.";
+            this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

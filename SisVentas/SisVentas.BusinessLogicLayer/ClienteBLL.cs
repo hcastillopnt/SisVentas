@@ -95,13 +95,14 @@ namespace SisVentas.BusinessLogicLayer
 
         }
 
-        public static string removeCliente(int id)
+        public static string removeCliente(string apellido)
         {
             string message = string.Empty;
 
-            if (id > 0)
+            if (!(apellido.Equals("")))
             {
-                return DataAccessLayer.ClienteDAL.removeCliente(id);
+                return DataAccessLayer.ClienteDAL.removeCliente(apellido);
+
             }
             else
             {

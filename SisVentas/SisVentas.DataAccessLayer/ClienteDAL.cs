@@ -180,7 +180,7 @@ namespace SisVentas.DataAccessLayer
 
         #region ELIMINAR
 
-        public static string removeCliente(int Id)
+        public static string removeCliente(string apellido)
         {
             //variable para almacenar el mensaje de error en caso de que ocurra alguno
             string message = string.Empty;
@@ -202,7 +202,7 @@ namespace SisVentas.DataAccessLayer
                         #region Alternativa #1 - Eliminando con Entity Framework
                         //Consultar para obtener el objeto a eliminar
                         //var objStudent = dbCtx.Students.Find(Id);
-                        var objCliente = dbCtx.Clientes.Where(x => x.Id == Id).SingleOrDefault();//Puede ser esta también para que elimine
+                        var objCliente = dbCtx.Clientes.Where(x => x.apellido == apellido).SingleOrDefault();//Puede ser esta también para que elimine
 
                         //Consulta para eliminar el objeto
                         dbCtx.Clientes.Remove(objCliente);

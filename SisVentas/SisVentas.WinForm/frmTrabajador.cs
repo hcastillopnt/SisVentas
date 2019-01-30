@@ -236,6 +236,35 @@ namespace SisVentas.WinForm
         {
             this.Close();
         }
+
+        private void chkEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            Trabajador trabajador = new Trabajador();
+
+            //Declaramos variables y las igualamos a las cajas de texto
+            string nombre = txtBuscar.Text.Trim().ToString();
+
+            //Asignamos variables
+            trabajador.apellido = txtBuscar.Text;
+
+            //Puente entre el BusinessLogicLayer y la interfaz Grafica
+            String message = SisVentas.BusinessLogicLayer.TrabajadorBLL.removeTrabajador(nombre);
+
+            //Es para validar si ocurrio algun error
+            if (string.IsNullOrEmpty(message))
+            {
+                //Si no hubo errores, muestra un mensaje de confirmacion
+                MessageBox.Show("El registro ha sido eliminado correctamente");
+
+                //Precargado
+                dataListado.DataSource = SisVentas.BusinessLogicLayer.ProveedorBLL.getAllProveedor();
+
+            }
+            else
+            {
+                MessageBox.Show(message);
+            }
+        }
     }
 }
 
