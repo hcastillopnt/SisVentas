@@ -106,7 +106,7 @@ namespace SisVentas.DataAccessLayer
 
             return message;
         }
-        public static string removeCategoria(int categoriaid)
+        public static string removeCategoria(string nombre)
         {
             //variable para almacnar los errores del metodo
             string message = string.Empty;
@@ -122,7 +122,7 @@ namespace SisVentas.DataAccessLayer
                     if (isDataBaseExists)
                     {
                         //traer una consulta para obtener el obhjeto a eliminar
-                        var objStudent = dbCtx.Categorias.Where(x => x.ID == categoriaid)
+                        var objStudent = dbCtx.Categorias.Where(x => x.Nombre == nombre)
                             .SingleOrDefault();
 
                         //consulta para eliminar el objeto
