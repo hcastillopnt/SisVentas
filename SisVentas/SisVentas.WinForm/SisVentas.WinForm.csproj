@@ -153,6 +153,9 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,6 +397,20 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\SistemasVentas.DataAccessLayer.csproj">
+      <Project>{872c05a3-acd5-4a6b-959c-2bea6be5c289}</Project>
+      <Name>SistemasVentas.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemasVentas.BussinesLogicLayer\SistemasVentas.BussinesLogicLayer.csproj">
+      <Project>{7c54756b-52ff-47ef-97bb-4883cab95ae0}</Project>
+      <Name>SistemasVentas.BussinesLogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemasVentas\SistemasVentas.csproj">
+      <Project>{076f1d5e-9e12-4499-b643-642f51c468bc}</Project>
+      <Name>SistemasVentas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
