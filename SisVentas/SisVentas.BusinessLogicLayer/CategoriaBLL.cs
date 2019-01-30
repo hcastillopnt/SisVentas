@@ -27,8 +27,7 @@ namespace SisVentas.BusinessLogicLayer
                 }
                 else
                 {
-
-
+                   
                     //puente entre la capa de negocio y de acceso a datos
                     message = DataAccessLayer.CategoriaDAL.insertcategoria(Categoria);
                 }
@@ -39,11 +38,11 @@ namespace SisVentas.BusinessLogicLayer
         }
 
 
-        public static string removeCategoria(int CategoriaId)
+        public static string removeCategoria(string nombre)
         {
-            if (CategoriaId > 0)
+            if (nombre == "")
             {
-                return DataAccessLayer.CategoriaDAL.removeCategoria(CategoriaId);
+                return DataAccessLayer.CategoriaDAL.removeCategoria(nombre);
             }
             else
             {

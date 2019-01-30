@@ -106,6 +106,17 @@ namespace SisVentas.DataAccessLayer
             return trabajadores;
         }
 
+        public static List<Trabajador> getTrabajadorByApellido(string trabajadorApellido)
+        {
+            //lista para almacenar el objeto a buscar
+            List<Trabajador> trabajadores = new List<Trabajador>();
+
+            //buscar
+            trabajadores = dbCtx.Trabajadores.Where(x => x.Apellidos == trabajadorApellido).ToList();
+
+            return trabajadores;
+        }
+
         public static string updateTrabajador(Trabajador trabajador)
         {
             //variable para almacenar mensaje en caso de error
@@ -145,7 +156,7 @@ namespace SisVentas.DataAccessLayer
                             entity.Contraseña = trabajador.Contraseña;
 
                             //se añade al contexto
-                            dbCtx.Entry(trabajador).State = EntityState.Modified;
+                            dbCtx.Entry(entity).State = EntityState.Modified;
 
                             isUpdated = dbCtx.SaveChanges() > 0;
 
@@ -155,6 +166,10 @@ namespace SisVentas.DataAccessLayer
                                 dbCtxTran.Commit();
                             }
 
+                        }
+                        else
+                        {
+                            message = "no existe";
                         }
                     }
 
