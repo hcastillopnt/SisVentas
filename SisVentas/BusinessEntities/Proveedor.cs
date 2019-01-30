@@ -26,7 +26,7 @@ namespace BusinessEntities
 
         [Required(ErrorMessage = "El campo Numero de Documento es obligatorio ")]
         [StringLength(10, ErrorMessage = "La longitud es de 10 caracteres")]
-        public string num_Caracter { get; set; }
+        public string num_Documento { get; set; }
 
         
         [StringLength(50, ErrorMessage = "La longitud es de 50 caracteres")]
