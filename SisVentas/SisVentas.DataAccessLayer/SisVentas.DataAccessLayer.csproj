@@ -66,6 +66,7 @@
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="PresentacionDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorDAL.cs" />
     <Compile Include="TrabajadorDAL.cs" />
   </ItemGroup>
   <ItemGroup>
