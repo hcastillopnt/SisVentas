@@ -19,33 +19,7 @@ namespace SisVentas.WinForm
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            if ((TxtUsuario.Text != "") && (TxtPassword.Text != ""))
-            {
-                if ((TxtUsuario.Text.Equals("admin")) && (TxtPassword.Text.Equals("admin")))
-                {
-                    frmPrincipal miPrincipal = new frmPrincipal();
-                    miPrincipal.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Usuario y/o conraseña incorrecto", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TxtUsuario.Clear();
-                    TxtPassword.Clear();
-                    TxtUsuario.Focus();
 
-                }
-            }
-            else
-            {
-                MessageBox.Show("Usuario y/o contraseña incorrecto", "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                TxtUsuario.Focus();
-            }
-        }
-
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

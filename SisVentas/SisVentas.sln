@@ -12,7 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDatos", "BaseDatos", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.BusinessEntities", "SisVentas.BusinessEntities\SisVentas.BusinessEntities.csproj", "{4EE9F1C0-589C-48F1-BB91-251039006122}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.WinForm", "..\..\SisVentas.WinForm\SisVentas.WinForm.csproj", "{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.BusinessLogicLayer", "SisVentas.BusinessLogicLayer\SisVentas.BusinessLogicLayer.csproj", "{AC716B82-591B-48E4-AD2C-2E3A18E4C8B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.DataAccessLayer", "SisVentas.DataAccessLayer\SisVentas.DataAccessLayer.csproj", "{0FB6C27B-78E7-4A38-94E7-B8B8A076BE15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVentas.WinForm", "SisVentas.WinForm\SisVentas.WinForm.csproj", "{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +28,14 @@ Global
 		{4EE9F1C0-589C-48F1-BB91-251039006122}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE9F1C0-589C-48F1-BB91-251039006122}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE9F1C0-589C-48F1-BB91-251039006122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC716B82-591B-48E4-AD2C-2E3A18E4C8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC716B82-591B-48E4-AD2C-2E3A18E4C8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC716B82-591B-48E4-AD2C-2E3A18E4C8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC716B82-591B-48E4-AD2C-2E3A18E4C8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FB6C27B-78E7-4A38-94E7-B8B8A076BE15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FB6C27B-78E7-4A38-94E7-B8B8A076BE15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FB6C27B-78E7-4A38-94E7-B8B8A076BE15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FB6C27B-78E7-4A38-94E7-B8B8A076BE15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DADB0531-0E8B-4F2E-960A-F3BB9BE520EB}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -51,7 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtNum_Documento = new System.Windows.Forms.TextBox();
+            this.txtNumDocumento = new System.Windows.Forms.TextBox();
             this.cbAcceso = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dtFecha_Nacimiento = new System.Windows.Forms.DateTimePicker();
@@ -143,6 +143,7 @@
             this.cbBuscar.Size = new System.Drawing.Size(121, 24);
             this.cbBuscar.TabIndex = 8;
             this.cbBuscar.Text = "Documento";
+            this.cbBuscar.SelectedIndexChanged += new System.EventHandler(this.cbBuscar_SelectedIndexChanged);
             // 
             // tabControl1
             // 
@@ -195,6 +196,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
@@ -207,6 +209,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tabPage2
             // 
@@ -230,7 +233,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtNum_Documento);
+            this.groupBox1.Controls.Add(this.txtNumDocumento);
             this.groupBox1.Controls.Add(this.cbAcceso);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.dtFecha_Nacimiento);
@@ -337,14 +340,14 @@
             this.label11.TabIndex = 43;
             this.label11.Text = "Teléfono:";
             // 
-            // txtNum_Documento
+            // txtNumDocumento
             // 
-            this.txtNum_Documento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtNum_Documento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNum_Documento.Location = new System.Drawing.Point(113, 157);
-            this.txtNum_Documento.Name = "txtNum_Documento";
-            this.txtNum_Documento.Size = new System.Drawing.Size(107, 22);
-            this.txtNum_Documento.TabIndex = 42;
+            this.txtNumDocumento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtNumDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumDocumento.Location = new System.Drawing.Point(113, 157);
+            this.txtNumDocumento.Name = "txtNumDocumento";
+            this.txtNumDocumento.Size = new System.Drawing.Size(107, 22);
+            this.txtNumDocumento.TabIndex = 42;
             // 
             // cbAcceso
             // 
@@ -476,9 +479,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
+            this.label3.Size = new System.Drawing.Size(25, 17);
             this.label3.TabIndex = 28;
-            this.label3.Text = "Código:";
+            this.label3.Text = "ID:";
             // 
             // btnCancelar
             // 
@@ -491,6 +494,7 @@
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -503,6 +507,7 @@
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "E&ditar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -515,6 +520,7 @@
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnNuevo
             // 
@@ -527,6 +533,7 @@
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // label1
             // 
@@ -568,6 +575,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmTrabajador";
             this.Text = "..:: Mantenimiento de Trabajadores ::..";
+            this.Load += new System.EventHandler(this.frmTrabajador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -614,7 +622,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtNum_Documento;
+        private System.Windows.Forms.TextBox txtNumDocumento;
         private System.Windows.Forms.ComboBox cbAcceso;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtFecha_Nacimiento;
