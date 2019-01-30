@@ -12,16 +12,8 @@ namespace SistemasVentas.BussinesLogicLayer
     {
         public static List<Proveedor> getProveedorByFilter(string Filter, string bandera)
         {
-            //Lista para almacenar el objeto a buscar
+            //almacenar el objeto a buscar
             List<Proveedor> Proveedors = new List<Proveedor>();
-        
-            switch (bandera)
-            {
-                case "ProveedorId":
-                    int ProveedorID = Convert.ToInt32(Filter);
-                    Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
-                    break;
-            }
             return Proveedors;
 
         }
@@ -32,14 +24,14 @@ namespace SistemasVentas.BussinesLogicLayer
             List<Proveedor> Proveedors = new List<Proveedor>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
+            Proveedors = DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
 
             return Proveedors;
 
 
         }
 
-        public static List<Proveedor> getAllProveedor()
+        public static List<Proveedor> getAllProveedors()
         {
             //Lista para almacenar el objeto a buscar
             List<Proveedor> Proveedors = new List<Proveedor>();
