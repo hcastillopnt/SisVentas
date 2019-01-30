@@ -9,7 +9,7 @@ using SisVentas.DataAccessLayer;
 
 namespace SisVentas.BusinessLogicLayer
 {
-    class TrabajadorBLL
+    public class TrabajadorBLL
     {
         public static string insertTrabajador(Trabajador trabajador)
         {
@@ -76,6 +76,17 @@ namespace SisVentas.BusinessLogicLayer
 
             //puente entre DAL y BLL
             trabajadores = DataAccessLayer.TrabajadorDAL.getTrabajadorByNumDocumento(trabajadorNumDocumento);
+
+            return trabajadores;
+        }
+
+        public static List<Trabajador> getTrabajadorByApellido(string trabajadorApellido)
+        {
+            //lista para almacenar el objeto a buscar
+            List<Trabajador> trabajadores = new List<Trabajador>();
+
+            //puente entre DAL y BLL
+            trabajadores = DataAccessLayer.TrabajadorDAL.getTrabajadorByApellido(trabajadorApellido);
 
             return trabajadores;
         }
