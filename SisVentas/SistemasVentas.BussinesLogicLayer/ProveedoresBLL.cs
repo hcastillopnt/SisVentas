@@ -24,7 +24,7 @@ namespace SistemasVentas.BussinesLogicLayer
             List<Proveedor> Proveedors = new List<Proveedor>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = DataAccessLayer.ProveedorDAL.getProveedorByID(ProveedorID);
+            Proveedors = SistemasVentas.DataAccessLayer.ProveedoresDAL.getProveedorByID(ProveedorID);
 
             return Proveedors;
 
@@ -37,7 +37,7 @@ namespace SistemasVentas.BussinesLogicLayer
             List<Proveedor> Proveedors = new List<Proveedor>();
 
             //Puente entre el DataAccessLayer y el BussinesLogicLayer
-            Proveedors = SistemasVentas.DataAccessLayer.ProveedorDAL.getAllProveedor();
+            Proveedors = SistemasVentas.DataAccessLayer.ProveedoresDAL.getAllProveedor();
 
             return Proveedors;
         }
@@ -55,7 +55,7 @@ namespace SistemasVentas.BussinesLogicLayer
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.insertProveedor(objProveedor);
+                message = SistemasVentas.DataAccessLayer.ProveedoresDAL.insertProveedor(objProveedor);
             }
 
 
@@ -83,7 +83,7 @@ namespace SistemasVentas.BussinesLogicLayer
             }
             else
             {
-                message = SistemasVentas.DataAccessLayer.ProveedorDAL.updateProveedor(objProveedor);
+                message = SistemasVentas.DataAccessLayer.ProveedoresDAL.updateProveedor(objProveedor);
             }
        
             //regresa el mensaje con o sin errores
@@ -98,7 +98,7 @@ namespace SistemasVentas.BussinesLogicLayer
             if (ProveedorID > 0)
             {
 
-                return SistemasVentas.DataAccessLayer.ProveedorDAL.removeProveedor(ProveedorID);
+                return SistemasVentas.DataAccessLayer.ProveedoresDAL.removeProveedor(ProveedorID);
 
             }
             else
