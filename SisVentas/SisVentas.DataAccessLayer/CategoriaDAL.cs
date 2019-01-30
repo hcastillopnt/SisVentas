@@ -172,7 +172,7 @@ namespace SisVentas.DataAccessLayer
         }
         #endregion
 
-6        #region ELIMINAR
+        #region ELIMINAR
 
         public static string removeCategoria(int Id)
         {
