@@ -22,7 +22,7 @@ namespace SisVentas.WinForm
         private void frmCliente_Load(object sender, EventArgs e)
         {
             //Precargando la informacion del grid por medio de la BD desde el principio
-            dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+            dataListado.DataSource = BussinesLogicLayer.ClienteBLL.getAllCliente();
 
         }
 
@@ -63,7 +63,7 @@ namespace SisVentas.WinForm
                 cliente.Id = Id;
 
                 //Puente entre le BussinesLogiclayer y la interfaz grafica
-                string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.updateCliente(cliente);
+                string message = BussinesLogicLayer.ClienteBLL.updatecliente(cliente);
 
                 //Es para validar si ocurrio algun error
                 if (string.IsNullOrEmpty(message))
@@ -71,7 +71,7 @@ namespace SisVentas.WinForm
                     MessageBox.Show("El registro ha sido actualizado correctamente");
 
                     //Precargando la informacion del grid por medio de la BD
-                    dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+                    dataListado.DataSource = BussinesLogicLayer.ClienteBLL.getAllCliente();
 
                 }
                 else
@@ -84,7 +84,7 @@ namespace SisVentas.WinForm
             {
                 #endregion
                 //Puente entre le BussinesLogiclayer y la interfaz grafica
-                string message = SistemasVentas.BussinesLogicLayer.ClienteBLL.insertCliente(cliente);
+                string message = BussinesLogicLayer.ClienteBLL.insertCliente(cliente);
 
                 //Es para validar si ocurrio algun error
                 if (string.IsNullOrEmpty(message))
@@ -92,7 +92,7 @@ namespace SisVentas.WinForm
                     MessageBox.Show("El registro ha sido creado correctamente");
 
                     //Precargando la informacion del grid por medio de la BD
-                    dataListado.DataSource = SistemasVentas.BussinesLogicLayer.ClienteBLL.getAllClientes();
+                    dataListado.DataSource = BussinesLogicLayer.ClienteBLL.getAllCliente();
 
                 }
                 else
@@ -122,7 +122,7 @@ namespace SisVentas.WinForm
             clienteId = Convert.ToInt32(txtBuscar.Text.Trim().ToString());
 
             //hacer el puente entre la capa de negocios y la UI
-            clientes = SistemasVentas.BussinesLogicLayer.ClienteBLL.getClienteByID(clienteId);
+            clientes = BussinesLogicLayer.ClienteBLL.getClienteByID(clienteId);
 
             
 
