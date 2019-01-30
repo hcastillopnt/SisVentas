@@ -115,5 +115,28 @@ namespace SisVentas.WinForm
             dataListado.DataSource = clientes;
 
             }
+
+        private void dataListado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //validar si  seleccione la fila
+            if (e.RowIndex >= 0)
+            {
+                //Obtengo la fila seleccionada
+                DataGridViewRow row = this.dataListado.Rows[e.RowIndex];
+
+                //Le coloco los datos los textbox en base a la fila seleccionada
+                txtIdcliente.Text = row.Cells["Id"].Value.ToString();
+                txtNombre.Text = row.Cells["Nombre"].Value.ToString();
+                txtApellidos.Text = row.Cells["Apellidos"].Value.ToString();
+                cbSexo.SelectedItem = row.Cells["Sexo"].Value.ToString();
+                //dtFechaNac.Value = row.Cells["FechaNacimiento"].;
+                cbTipo_Documento.SelectedItem = row.Cells["TipoDocumento"].Value.ToString();
+                txtNum_Documento.Text = row.Cells["NumeroDocumento"].Value.ToString();
+                txtDireccion.Text = row.Cells["Direccion"].Value.ToString();
+                txtTelefono.Text = row.Cells["Telefono"].Value.ToString();
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+
+            }
+        }
     }
 }
