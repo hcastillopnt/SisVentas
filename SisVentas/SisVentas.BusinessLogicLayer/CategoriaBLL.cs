@@ -27,7 +27,7 @@ namespace SisVentas.BusinessLogicLayer
                 }
                 else
                 {
-                   
+
                     //puente entre la capa de negocio y de acceso a datos
                     message = DataAccessLayer.CategoriaDAL.insertcategoria(Categoria);
                 }
@@ -42,11 +42,12 @@ namespace SisVentas.BusinessLogicLayer
         {
             if (nombre == "")
             {
-                return DataAccessLayer.CategoriaDAL.removeCategoria(nombre);
+                return "error";
             }
             else
             {
-                return "error";
+                return DataAccessLayer.CategoriaDAL.removeCategoria(nombre);
+
             }
         }
 
@@ -70,7 +71,7 @@ namespace SisVentas.BusinessLogicLayer
                 }
                 else
                 {
-                    
+
 
                     //puente entre la capa de negocio y de acceso a datos
                     message = DataAccessLayer.CategoriaDAL.updateCategoria(categoria);
@@ -89,8 +90,7 @@ namespace SisVentas.BusinessLogicLayer
 
             return students;
         }
-        public static List<Categoria> getCategorias
-            ()
+        public static List<Categoria> getCategorias()
         {
 
             List<Categoria> categorias = new List<Categoria>();

@@ -55,13 +55,13 @@ namespace SisVentas.WinForm
             //agregar valores
             string nombre = txtNombre.Text.Trim().ToString();
             string descripcion = txtDescripcion.Text.Trim().ToString();
-         
-            
+
+
 
             categoria.Nombre = nombre;
-            
+
             categoria.Descripcion = descripcion;
-            
+
             //puente entre el bussinessligiclayer y la nterfaz grafica
             string message = SisVentas.BusinessLogicLayer.CategoriaBLL.insertCategoria(categoria);
 
@@ -89,11 +89,11 @@ namespace SisVentas.WinForm
             Categoria categoria = new Categoria();
             //agregar valores
             string nombre = txtBuscar.Text.Trim().ToString();
-            
+
 
 
             categoria.Nombre = nombre;
-            
+
 
             //puente entre el bussinessligiclayer y la nterfaz grafica
             string message = SisVentas.BusinessLogicLayer.CategoriaBLL.removeCategoria(nombre);
@@ -127,7 +127,7 @@ namespace SisVentas.WinForm
 
             //hacer el puente 
 
-             categorias = SisVentas.BusinessLogicLayer.CategoriaBLL.getStudentsByLastName(nombre);
+            categorias = SisVentas.BusinessLogicLayer.CategoriaBLL.getStudentsByLastName(nombre);
             //cargue e el grid el objeto que buscars
             dataListado.DataSource = categorias;
         }
@@ -137,6 +137,11 @@ namespace SisVentas.WinForm
             frmPrincipal miPrincipal = new frmPrincipal();
             miPrincipal.Show();
             this.Hide();
+        }
+
+        private void frmCategoria_Load(object sender, EventArgs e)
+        {
+            dataListado.DataSource = SisVentas.BusinessLogicLayer.CategoriaBLL.getCategorias();
         }
     }
 }
