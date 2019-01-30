@@ -58,12 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmArticulo.Designer.cs">
-      <DependentUpon>frmArticulo.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,12 +69,6 @@
     </Compile>
     <Compile Include="frmCliente.Designer.cs">
       <DependentUpon>frmCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmIngreso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmIngreso.Designer.cs">
-      <DependentUpon>frmIngreso.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -112,42 +100,6 @@
     <Compile Include="frmTrabajador.Designer.cs">
       <DependentUpon>frmTrabajador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVenta.Designer.cs">
-      <DependentUpon>frmVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmVistaArticulo_Ingreso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVistaArticulo_Ingreso.Designer.cs">
-      <DependentUpon>frmVistaArticulo_Ingreso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmVistaArticulo_Venta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVistaArticulo_Venta.Designer.cs">
-      <DependentUpon>frmVistaArticulo_Venta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmVistaCategoria_Articulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVistaCategoria_Articulo.Designer.cs">
-      <DependentUpon>frmVistaCategoria_Articulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmVistaCliente_Venta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVistaCliente_Venta.Designer.cs">
-      <DependentUpon>frmVistaCliente_Venta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmVistaProveedor_Ingreso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVistaProveedor_Ingreso.Designer.cs">
-      <DependentUpon>frmVistaProveedor_Ingreso.cs</DependentUpon>
-    </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -173,24 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrabajador.resx">
       <DependentUpon>frmTrabajador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVenta.resx">
-      <DependentUpon>frmVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVistaArticulo_Ingreso.resx">
-      <DependentUpon>frmVistaArticulo_Ingreso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVistaArticulo_Venta.resx">
-      <DependentUpon>frmVistaArticulo_Venta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVistaCategoria_Articulo.resx">
-      <DependentUpon>frmVistaCategoria_Articulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVistaCliente_Venta.resx">
-      <DependentUpon>frmVistaCliente_Venta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVistaProveedor_Ingreso.resx">
-      <DependentUpon>frmVistaProveedor_Ingreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
