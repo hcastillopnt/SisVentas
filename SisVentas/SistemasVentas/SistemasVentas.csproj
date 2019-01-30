@@ -44,8 +44,16 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.12\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,9 +64,9 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="Ingreso.cs" />
-    <Compile Include="Migrations\201901291736163_initial.cs" />
-    <Compile Include="Migrations\201901291736163_initial.Designer.cs">
-      <DependentUpon>201901291736163_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201901300154384_initial.cs" />
+    <Compile Include="Migrations\201901300154384_initial.Designer.cs">
+      <DependentUpon>201901300154384_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +82,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901291736163_initial.resx">
-      <DependentUpon>201901291736163_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901300154384_initial.resx">
+      <DependentUpon>201901300154384_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
