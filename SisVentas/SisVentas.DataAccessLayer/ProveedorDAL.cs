@@ -24,31 +24,28 @@ namespace SisVentas.DataAccessLayer
             return proveedores;
         }
 
-        //Método para consultar todos los estudiantes (Select * From Students), retorna lista de estudiantes registrados
-        public static List<Proveedor> getAllProveedores()
-        {
+         public static List<Proveedor> getAllProveedores()
+         {
             List<Proveedor> proveedores = new List<Proveedor>();
-
-            //SELECT * FROM Students
+            
             proveedores = dbCtx.Proveedores.ToList();
 
             return proveedores;
-        }
+         }
 
         //Método para traer un registro especifico
         public static List<Proveedor> getProveedorByNumDocumento(string NumDocumento)
         {
             List<Proveedor> proveedores = new List<Proveedor>();
-
-            //SELECT * FROM Students WHERE LastName = '_____'
+            
+     
             proveedores = dbCtx.Proveedores.Where(x => x.NumDocumento == NumDocumento).ToList();
 
             return proveedores;
 
         }
 
-        #region Método para insertar
-        //Metodo para insertar en la tabla student
+        //Método para insertar
         public static string insertProveedor(Proveedor entity)
         {
             // Variable para almacenar el mensaje de error en caso de que ocurra alguno
@@ -80,9 +77,6 @@ namespace SisVentas.DataAccessLayer
                             //Se hace commit a la transacción
                             dbCtxTran.Commit();
                         }
-                        #endregion
-
-                       
                     }
                 }
 
@@ -117,9 +111,7 @@ namespace SisVentas.DataAccessLayer
             return message;
         }
        
-
-        #region Método para ACTUALIZAR
-        //Metodo para ACTUALIZAR en la tabla student
+        // Método para ACTUALIZAR
         public static string updateProveedor(Proveedor entity)
         {
             // Variable para almacenar el mensaje de error en caso de que ocurra alguno
@@ -199,7 +191,7 @@ namespace SisVentas.DataAccessLayer
             }
             return message;
         }
-        #endregion
+
         public static string removeProveedor(int ProveedorID)
         {
             //Almacena los errores del método
@@ -262,7 +254,5 @@ namespace SisVentas.DataAccessLayer
             }
             return message;
         }
-
-    }
-    
+    }    
 }
